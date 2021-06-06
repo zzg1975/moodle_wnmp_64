@@ -1,0 +1,50 @@
+a:74:{s:13:"bannercontent";s:0:"";s:13:"bannerheading";s:0:"";s:10:"brandcolor";s:0:"";s:12:"clientscount";s:1:"1";s:16:"clientsfrontpage";s:1:"0";s:13:"clientsimage1";s:0:"";s:15:"clientssubtitle";s:21:"信任我们的客户";s:12:"clientstitle";s:15:"我们的客户";s:11:"clientsurl1";s:0:"";s:14:"courselistview";s:1:"1";s:18:"coursepresentation";s:1:"1";s:24:"disablefrontpageloginbox";s:1:"1";s:18:"disableteacherspic";s:1:"0";s:19:"displaymarketingbox";s:1:"0";s:8:"facebook";s:0:"";s:7:"favicon";s:0:"";s:19:"forumcustomtemplate";s:1:"0";s:20:"forumhtmlemailfooter";s:0:"";s:20:"forumhtmlemailheader";s:0:"";s:17:"getintouchcontent";s:68:"Powered by 闪电Moodle服务器(由曾棕根研制)，Since 2008。";s:15:"googleanalytics";s:0:"";s:9:"headerimg";s:18:"/head-20210227.png";s:9:"instagram";s:0:"";s:8:"linkedin";s:0:"";s:10:"loginbgimg";s:0:"";s:4:"logo";s:10:"/logo5.png";s:4:"mail";s:16:"461932968@qq.com";s:17:"marketing1content";s:49:"Moodle hosting in a powerful cloud infrastructure";s:17:"marketing1heading";s:7:"We host";s:14:"marketing1icon";s:0:"";s:20:"marketing1subheading";s:11:"your MOODLE";s:13:"marketing1url";s:0:"";s:17:"marketing2content";s:38:"Moodle consulting and training for you";s:17:"marketing2heading";s:10:"Consulting";s:14:"marketing2icon";s:0:"";s:20:"marketing2subheading";s:16:"for your company";s:13:"marketing2url";s:0:"";s:17:"marketing3content";s:45:"We develop themes and plugins as your desires";s:17:"marketing3heading";s:11:"Development";s:14:"marketing3icon";s:0:"";s:20:"marketing3subheading";s:18:"themes and plugins";s:13:"marketing3url";s:0:"";s:17:"marketing4content";s:26:"MOODLE specialized support";s:17:"marketing4heading";s:7:"Support";s:14:"marketing4icon";s:0:"";s:20:"marketing4subheading";s:19:"we give you answers";s:13:"marketing4url";s:0:"";s:6:"mobile";s:25:"Mobile : (+86)18757462581";s:8:"navbarbg";s:0:"";s:13:"navbarbghover";s:0:"";s:17:"navbarheadercolor";s:0:"";s:16:"numbersfrontpage";s:1:"0";s:6:"preset";s:12:"default.scss";s:11:"presetfiles";s:0:"";s:4:"scss";s:878:"#page-site-index.notloggedin #page-header {
+    background-color: #0497e4;
+    background-size: auto;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+#page-site-index.notloggedin .frontpage-maincontent {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+#page-site-index.notloggedin .frontpage-sponsors, #page-site-index.notloggedin .frontpage-clients {
+    padding-top: 0rem;
+}
+
+
+#top-footer {
+    padding: 15px 15px;
+}
+
+.pt-1, .py-1 {
+    padding-top: .0rem!important;
+}
+
+.btn-primary {
+    color: #212529;
+    background-color: #ced4da;
+    border-color: #ced4da;
+}
+
+.SSO {
+    color: #212529;
+    background-color: #96f999;
+    border-color: #96f999;
+}
+
+nav.navbar .drawer-toggle {
+    background-color: #ffffff;
+}
+
+nav.navbar .drawer-toggle .nav-link {
+    color: #000;
+}
+
+#nav-drawer-footer {
+    background-color: #272c33;
+}";s:7:"scsspre";s:0:"";s:10:"slidercap1";s:0:"";s:11:"slidercount";s:1:"1";s:13:"sliderenabled";s:1:"0";s:15:"sliderfrontpage";s:1:"0";s:12:"sliderimage1";s:0:"";s:12:"slidertitle1";s:0:"";s:13:"sponsorscount";s:1:"1";s:17:"sponsorsfrontpage";s:1:"0";s:14:"sponsorsimage1";s:0:"";s:16:"sponsorssubtitle";s:30:"信任我们的公司和机构";s:13:"sponsorstitle";s:9:"赞助商";s:12:"sponsorsurl1";s:0:"";s:12:"topfooterimg";s:0:"";s:7:"twitter";s:0:"";s:7:"version";s:10:"2020110900";s:7:"website";s:24:"https://mood.nbpt.edu.cn";s:8:"whatsapp";s:0:"";s:7:"youtube";s:0:"";}

@@ -1,0 +1,20 @@
+O:8:"stdClass":24:{s:2:"id";s:3:"517";s:8:"category";s:2:"11";s:6:"parent";s:1:"0";s:4:"name";s:30:"BUILT_IN_PROTOTYPE_java_method";s:12:"questiontext";s:59:"Built-in prototypes are documented in the language strings.";s:18:"questiontextformat";s:1:"1";s:15:"generalfeedback";s:0:"";s:21:"generalfeedbackformat";s:1:"1";s:11:"defaultmark";d:1;s:7:"penalty";d:0;s:5:"qtype";s:10:"coderunner";s:6:"length";s:1:"1";s:5:"stamp";s:29:"127.0.0.1+210526000714+wIPBPN";s:7:"version";s:29:"127.0.0.1+210526000714+Zp9ZzU";s:6:"hidden";s:1:"0";s:11:"timecreated";s:10:"1621987634";s:12:"timemodified";s:10:"1621987634";s:9:"createdby";s:1:"2";s:10:"modifiedby";s:1:"2";s:8:"idnumber";N;s:9:"contextid";s:1:"1";s:7:"options";O:8:"stdClass":43:{s:14:"coderunnertype";s:11:"java_method";s:13:"prototypetype";s:1:"1";s:12:"allornothing";s:1:"1";s:13:"penaltyregime";s:15:"33.3, 66.7, ...";s:8:"precheck";s:1:"0";s:9:"hidecheck";s:1:"0";s:10:"showsource";s:1:"0";s:14:"answerboxlines";s:2:"18";s:16:"answerboxcolumns";s:3:"100";s:13:"answerpreload";s:0:"";s:11:"globalextra";s:0:"";s:6:"useace";s:1:"1";s:13:"resultcolumns";N;s:8:"template";s:424:"public class __tester__ {
+    static String SEPARATOR = "#<ab@17943918#@>#";
+    {{ STUDENT_ANSWER }}
+
+    public static void main(String[] args) {
+        __tester__ main = new __tester__();
+        main.runTests();
+    }
+
+    public void runTests() {
+{% for testCase in TESTCASES %}
+    {
+    {{ testCase.testcode }};
+    {% if not loop.last %}
+    System.out.println(SEPARATOR);
+    {% endif %}
+    }
+{% endfor %}
+    }
+}";s:20:"iscombinatortemplate";s:1:"1";s:19:"allowmultiplestdins";s:1:"0";s:6:"answer";s:0:"";s:14:"validateonsave";s:1:"0";s:14:"testsplitterre";s:23:"|#<ab@17943918#@>#\n|ms";s:8:"language";s:4:"Java";s:7:"acelang";N;s:7:"sandbox";N;s:6:"grader";s:14:"EqualityGrader";s:16:"cputimelimitsecs";N;s:10:"memlimitmb";s:4:"2000";s:13:"sandboxparams";N;s:14:"templateparams";s:0:"";s:19:"hoisttemplateparams";s:1:"0";s:18:"templateparamslang";s:4:"twig";s:24:"templateparamsevalpertry";s:1:"0";s:19:"templateparamsevald";N;s:7:"twigall";s:1:"0";s:8:"uiplugin";s:3:"ace";s:12:"uiparameters";N;s:11:"attachments";s:1:"0";s:19:"attachmentsrequired";s:1:"0";s:11:"maxfilesize";s:1:"0";s:14:"filenamesregex";s:0:"";s:16:"filenamesexplain";s:0:"";s:15:"displayfeedback";s:1:"0";s:7:"answers";a:0:{}s:9:"customise";b:1;s:9:"testcases";a:0:{}}s:5:"hints";a:0:{}s:14:"categoryobject";O:8:"stdClass":9:{s:2:"id";s:2:"11";s:4:"name";s:13:"CR_PROTOTYPES";s:9:"contextid";s:1:"1";s:4:"info";s:74:"Category for CodeRunner question built-in prototypes. FOR SYSTEM USE ONLY.";s:10:"infoformat";s:1:"0";s:5:"stamp";s:29:"127.0.0.1+210323013239+ApnCVT";s:6:"parent";s:1:"5";s:9:"sortorder";s:3:"999";s:8:"idnumber";N;}}

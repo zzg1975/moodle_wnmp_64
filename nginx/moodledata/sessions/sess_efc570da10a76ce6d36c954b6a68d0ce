@@ -1,0 +1,1 @@
+USER|O:8:"stdClass":4:{s:2:"id";i:0;s:10:"mnethostid";s:1:"1";s:10:"preference";a:0:{}s:7:"sesskey";s:10:"w6TKYaiXDK";}SESSION|O:8:"stdClass":2:{s:8:"wantsurl";s:40:"http://127.0.0.1/admin/index.php?cache=1";s:10:"logintoken";a:1:{s:15:"core_auth_login";a:2:{s:5:"token";s:32:"7gpIcFZT6sA8wcKvlQiSxGTCGcoI273S";s:7:"created";i:1614246090;}}}
