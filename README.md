@@ -87,7 +87,7 @@
   （1）Win10中，控制面板-程序-启用或关闭Windows功能-Internet Information Services-万维网服务：关闭；.NET Framework 4.8 Advanced Services-WCF服务-HTTP激活：关闭；.NET Framework 4.8 Advanced Services-ASP.NET 4.8：关闭。这种方法关闭，不会影响打印机服务。
   （2）以管理员身份运行cmd，再在命令行窗口中输入【net stop http】，如果提示是否真的需要停止这些服务，则选择”Y“，完成后输入【sc config http start=disabled】，再重启win10操作系统，再在命令行中运行【netstat -ano】，发现80号端口已经没有被占用了。但是，一旦使用了【sc config http start=disabled】这个命令，Print Spooler服务无法启动，先前安装好的打印机找不到了，无法进行打印。若要恢复设置，则需要以管理员身份运行cmd,输入【sc config http start= demand & net start http】，这时候发现Print Spooler服务可以启动了，之前安装好的打印机能正常打印了。
 
-- 4、从github上下载moodle_wnmp_64-master.zip到C盘根目录下，解压缩后目录名称是【C:\moodle_wnmp_64-master】,请一定要把所在目录名称修改为【C:\moodle_wnmp_64】,否则无法运行本架构。本架构默认在【C:\moodle_wnmp_64】这个固定目录中运行。
+- 4、从github上下载moodle_wnmp_64-main.zip到C盘根目录下，解压缩后目录名称是【C:\moodle_wnmp_64-main】,请一定要把所在目录名称修改为【C:\moodle_wnmp_64】,否则无法运行本架构。本架构默认在【C:\moodle_wnmp_64】这个固定目录中运行。
     从gitee上下载zzg1975-moodle_wnmp_64-main.zip到C盘根目录下，解压缩后目录名称是【C:\moodle_wnmp_64】，无需修改。
 - 5、安装Visual C++ Redistributable for Visual Studio 2015、2017 和 2019， 
   运行压缩包根目录下software文件夹内的VC_redist.x64-2015-2019.exe进行安装。因为php 8是用VC15 或者 VS16编译的。
