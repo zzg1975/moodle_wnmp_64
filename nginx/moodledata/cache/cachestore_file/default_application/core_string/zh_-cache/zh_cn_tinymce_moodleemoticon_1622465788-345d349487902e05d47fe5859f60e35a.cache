@@ -1,1 +1,0 @@
-a:5:{s:10:"pluginname";s:12:"插入表情";s:15:"requireemoticon";s:21:"需要表情过滤器";s:20:"requireemoticon_desc";s:111:"需要先要在网站管理-插件-过滤器-管理过滤器里启用表情过滤器才能启用表情按钮。";s:19:"moodleemoticon:desc";s:12:"插入表情";s:16:"privacy:metadata";s:68:"The Moodle Emoticon TinyMCE plugin does not store any personal data.";}

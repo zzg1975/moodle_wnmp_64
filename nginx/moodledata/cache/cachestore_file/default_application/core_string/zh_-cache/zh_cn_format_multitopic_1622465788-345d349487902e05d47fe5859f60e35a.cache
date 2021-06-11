@@ -1,8 +1,0 @@
-a:38:{s:14:"addsectionpage";s:12:"添加页面";s:15:"addsectiontopic";s:12:"添加主题";s:14:"currentsection";s:9:"本小节";s:11:"sectionname";s:6:"小节";s:10:"pluginname";s:15:"多主题格式";s:12:"section0name";s:6:"概述";s:27:"page-course-view-multitopic";s:36:"多主题格式的任何课程主页";s:29:"page-course-view-multitopic-x";s:33:"多主题格式的任何课程页";s:14:"hidefromothers";s:12:"隐藏小节";s:14:"showfromothers";s:12:"显示小节";s:16:"privacy:metadata";s:52:"Multitopic格式插件不存储任何个人数据。";s:14:"sectionoutline";s:12:"小节轮廓";s:5:"level";s:3:"级";s:11:"asprincipal";s:15:"第一级页面";s:7:"aschild";s:15:"第二级页面";s:10:"level_help";s:161:"设置小节级别。
-这是一个高级设置。
-如果可能，建议使用页面“编辑”菜单选项“提高页面级别”和“降低页面级别”。";s:21:"perioddurationdefault";s:18:"主题持续时间";s:22:"perioddurationoverride";s:24:"主题持续时间覆盖";s:26:"perioddurationdefault_help";s:177:"设置主题的默认持续时间以显示日期。
-例如，设置为“1周”与每周课程格式相同。
-设置为“未指定”不显示日期，如主题课程格式。";s:27:"perioddurationoverride_help";s:146:"此主题的持续时间。
-设置为“没有时间”，例如，学生在学习其他主题时要完成的作业。
-（不适用于页面。）";s:25:"activityclipboard_disable";s:21:"禁用活动剪贴板";s:24:"activityclipboard_enable";s:21:"启用活动剪贴板";s:29:"activityclipboard_placeholder";s:61:"单击活动旁边的上/下箭头将其移动到剪贴板。";s:14:"back_to_course";s:12:"回到课程";s:11:"bannerslice";s:12:"横幅切片";s:16:"bannerslice_help";s:205:"要在课程横幅中使用的课程摘要图像的切片。
-例如，设置为“0%”以使用课程横幅中课程摘要图像的顶部，“50%”以使用中间部分，或“100%”以使用底部。";s:5:"image";s:6:"图像";s:8:"image_by";s:3:"被";s:13:"image_licence";s:9:"许可证";s:15:"move_level_down";s:18:"降低页面级别";s:13:"move_level_up";s:18:"提高页面级别";s:14:"move_page_next";s:18:"向右移动页面";s:14:"move_page_prev";s:18:"向左移动页面";s:17:"move_to_next_page";s:15:"移到下一页";s:17:"move_to_prev_page";s:15:"移到上一页";s:13:"period_0_days";s:15:"不设置时间";s:16:"period_undefined";s:9:"未指明";s:17:"weeks_capitalised";s:3:"周";}

@@ -1,1 +1,0 @@
-a:8:{s:11:"description";s:75:"只允许那些通过特定分组方式而隶属于某群组的学生进入";s:20:"error_selectgrouping";s:24:"必须选择一个群组";s:7:"missing";s:11:"(无分组)";s:10:"pluginname";s:15:"按分组限制";s:17:"requires_grouping";s:40:"你属于 <strong>{$a}</strong>的小组";s:20:"requires_notgrouping";s:43:"你不属于 <strong>{$a}</strong>的小组";s:5:"title";s:6:"群组";s:16:"privacy:metadata";s:48:"分组限制插件不储存任何私人数据。";}

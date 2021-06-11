@@ -1,3 +1,0 @@
-a:7:{s:15:"informationtext";s:12:"信息文本";s:10:"pluginname";s:6:"描述";s:15:"pluginname_help";s:230:"描述不是一种真的题目类型。它只是简单地显示文字，并不要求做任何回答，与课程页面中的标签类似。
-
-在答题和回顾页面都会显示题干。而通用反馈只会在回顾页面显示。";s:16:"pluginnameadding";s:18:"添加一段描述";s:17:"pluginnameediting";s:12:"编辑描述";s:17:"pluginnamesummary";s:138:"这不是一种真的题目。它只是一种向活动添加指示、说明或其它内容的方法。与课程页面中的标签类似。";s:16:"privacy:metadata";s:70:"The Description question type plugin does not store any personal data.";}
