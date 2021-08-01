@@ -254,3 +254,234 @@ Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribut
 2021-06-12  7:34:13 0 [Note] InnoDB: Shutdown completed; log sequence number 32537754; transaction id 16674
 2021-06-12  7:34:13 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
 
+2021-08-01  7:26:23 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  7:26:23 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  7:26:23 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  7:26:23 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  7:26:23 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  7:26:23 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  7:26:23 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  7:26:23 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  7:26:23 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  7:26:23 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  7:26:23 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  7:26:23 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  7:26:23 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  7:26:23 0 [Note] InnoDB: 10.4.19 started; log sequence number 32537754; transaction id 16673
+2021-08-01  7:26:23 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  7:26:23 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  7:26:23 0 [Note] Server socket created on IP: '::'.
+2021-08-01  7:26:23 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  7:26:23 0 [Note] Added new Master_info '' to hash table
+2021-08-01  7:26:23 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  7:26:24 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  7:26:24
+2021-08-01  7:51:57 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  7:51:57 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  7:51:57 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  7:51:57 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  7:51:57 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  7:51:57 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  7:51:57
+2021-08-01  7:51:58 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  7:51:58 0 [Note] InnoDB: Shutdown completed; log sequence number 34483941; transaction id 17924
+2021-08-01  7:51:58 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+
+2021-08-01  7:52:03 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  7:52:03 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  7:52:03 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  7:52:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  7:52:03 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  7:52:03 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  7:52:03 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  7:52:03 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  7:52:04 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  7:52:04 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  7:52:04 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  7:52:04 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  7:52:04 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  7:52:04 0 [Note] InnoDB: 10.4.19 started; log sequence number 34483941; transaction id 17923
+2021-08-01  7:52:04 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  7:52:04 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  7:52:04 0 [Note] Server socket created on IP: '::'.
+2021-08-01  7:52:04 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  7:52:04 0 [Note] Added new Master_info '' to hash table
+2021-08-01  7:52:04 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  7:52:05 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  7:52:05
+2021-08-01  7:57:18 255 [Warning] Aborted connection 255 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  7:57:35 256 [Warning] Aborted connection 256 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  7:57:52 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  7:57:52 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  7:57:52 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  7:57:52 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  7:57:52 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  7:57:52 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  7:57:52
+2021-08-01  7:57:53 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  7:57:53 0 [Note] InnoDB: Shutdown completed; log sequence number 35698064; transaction id 20501
+2021-08-01  7:57:53 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+
+2021-08-01  7:57:57 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  7:57:57 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  7:57:57 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  7:57:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  7:57:57 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  7:57:57 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  7:57:57 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  7:57:58 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  7:57:58 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  7:57:58 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  7:57:58 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  7:57:58 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  7:57:58 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  7:57:58 0 [Note] InnoDB: 10.4.19 started; log sequence number 35698064; transaction id 20500
+2021-08-01  7:57:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  7:57:58 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  7:57:58 0 [Note] Server socket created on IP: '::'.
+2021-08-01  7:57:58 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  7:57:58 0 [Note] Added new Master_info '' to hash table
+2021-08-01  7:57:58 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  7:57:59 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  7:57:59
+2021-08-01  7:58:27 19 [Warning] Aborted connection 19 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  7:58:37 20 [Warning] Aborted connection 20 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  7:59:04 21 [Warning] Aborted connection 21 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  8:00:53 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  8:00:53 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  8:00:53 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  8:00:53 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  8:00:53 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:00:53 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  8:00:53
+2021-08-01  8:00:54 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  8:00:54 0 [Note] InnoDB: Shutdown completed; log sequence number 35739752; transaction id 20586
+2021-08-01  8:00:54 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+
+2021-08-01  8:17:58 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  8:17:58 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  8:17:58 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  8:17:58 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  8:17:58 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  8:17:58 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  8:17:58 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  8:17:58 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  8:17:58 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  8:17:58 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  8:17:58 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  8:17:58 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  8:17:58 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  8:17:58 0 [Note] InnoDB: 10.4.19 started; log sequence number 35739752; transaction id 20587
+2021-08-01  8:17:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  8:17:58 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:17:58 0 [Note] Server socket created on IP: '::'.
+2021-08-01  8:17:58 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  8:17:58 0 [Note] Added new Master_info '' to hash table
+2021-08-01  8:17:58 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  8:17:59 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  8:17:59
+2021-08-01  8:18:22 15 [Warning] Aborted connection 15 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  8:18:35 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  8:18:35 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  8:18:35 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  8:18:35 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  8:18:35 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:18:35 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  8:18:35
+2021-08-01  8:18:36 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  8:18:36 0 [Note] InnoDB: Shutdown completed; log sequence number 35757505; transaction id 20635
+2021-08-01  8:18:36 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+
+2021-08-01  8:23:33 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  8:23:33 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  8:23:33 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  8:23:33 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  8:23:33 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  8:23:33 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  8:23:33 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  8:23:33 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  8:23:33 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  8:23:33 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  8:23:33 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  8:23:33 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  8:23:33 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  8:23:33 0 [Note] InnoDB: 10.4.19 started; log sequence number 35757505; transaction id 20636
+2021-08-01  8:23:33 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  8:23:33 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:23:33 0 [Note] Server socket created on IP: '::'.
+2021-08-01  8:23:33 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  8:23:33 0 [Note] Added new Master_info '' to hash table
+2021-08-01  8:23:33 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  8:23:35 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  8:23:35
+2021-08-01  8:24:00 8 [Warning] Aborted connection 8 to db: 'moodle' user: 'root' host: 'localhost' (Got an error reading communication packets)
+2021-08-01  8:24:21 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  8:24:21 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  8:24:21 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  8:24:21 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  8:24:21 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:24:21 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  8:24:21
+2021-08-01  8:24:22 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  8:24:22 0 [Note] InnoDB: Shutdown completed; log sequence number 35930461; transaction id 21103
+2021-08-01  8:24:22 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+
+2021-08-01  8:25:51 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  8:25:51 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  8:25:51 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  8:25:51 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  8:25:51 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  8:25:51 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  8:25:51 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  8:25:51 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  8:25:51 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  8:25:51 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  8:25:51 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  8:25:51 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  8:25:51 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  8:25:51 0 [Note] InnoDB: 10.4.19 started; log sequence number 35930461; transaction id 21104
+2021-08-01  8:25:51 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  8:25:51 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:25:51 0 [Note] Server socket created on IP: '::'.
+2021-08-01  8:25:51 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  8:25:51 0 [Note] Added new Master_info '' to hash table
+2021-08-01  8:25:51 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  8:25:52 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  8:25:52
+2021-08-01  8:30:08 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  8:30:08 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  8:30:08 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  8:30:08 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  8:30:08 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:30:08 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  8:30:08
+2021-08-01  8:30:09 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  8:30:09 0 [Note] InnoDB: Shutdown completed; log sequence number 36378842; transaction id 22093
+2021-08-01  8:30:09 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+
+2021-08-01  8:32:30 0 [Note] Using unique option prefix 'myisam_recover' is error-prone and can break in the future. Please use the full name 'myisam-recover-options' instead.
+2021-08-01  8:32:30 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2021-08-01  8:32:30 0 [Note] InnoDB: Uses event mutexes
+2021-08-01  8:32:30 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2021-08-01  8:32:30 0 [Note] InnoDB: Number of pools: 1
+2021-08-01  8:32:30 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2021-08-01  8:32:30 0 [Note] InnoDB: Initializing buffer pool, total size = 512M, instances = 1, chunk size = 128M
+2021-08-01  8:32:31 0 [Note] InnoDB: Completed initialization of buffer pool
+2021-08-01  8:32:31 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2021-08-01  8:32:31 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2021-08-01  8:32:31 0 [Note] InnoDB: Setting file 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2021-08-01  8:32:31 0 [Note] InnoDB: File 'C:\moodle_wnmp_64\mariadb\data\ibtmp1' size is now 12 MB.
+2021-08-01  8:32:31 0 [Note] InnoDB: Waiting for purge to start
+2021-08-01  8:32:31 0 [Note] InnoDB: 10.4.19 started; log sequence number 36378842; transaction id 22092
+2021-08-01  8:32:31 0 [Note] Plugin 'FEEDBACK' is disabled.
+2021-08-01  8:32:31 0 [Note] InnoDB: Loading buffer pool(s) from C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:32:31 0 [Note] Server socket created on IP: '::'.
+2021-08-01  8:32:31 0 [Note] Reading of all Master_info entries succeeded
+2021-08-01  8:32:31 0 [Note] Added new Master_info '' to hash table
+2021-08-01  8:32:31 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.4.19-MariaDB'  socket: ''  port: 3366  mariadb.org binary distribution
+2021-08-01  8:32:32 0 [Note] InnoDB: Buffer pool(s) load completed at 210801  8:32:32
+2021-08-01  8:32:48 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe (initiated by: unknown): Normal shutdown
+2021-08-01  8:32:48 0 [Note] Event Scheduler: Purging the queue. 0 events
+2021-08-01  8:32:48 0 [Note] InnoDB: FTS optimize thread exiting.
+2021-08-01  8:32:48 0 [Note] InnoDB: Starting shutdown...
+2021-08-01  8:32:48 0 [Note] InnoDB: Dumping buffer pool(s) to C:\moodle_wnmp_64\mariadb\data\ib_buffer_pool
+2021-08-01  8:32:48 0 [Note] InnoDB: Buffer pool(s) dump completed at 210801  8:32:48
+2021-08-01  8:32:49 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2021-08-01  8:32:49 0 [Note] InnoDB: Shutdown completed; log sequence number 36489888; transaction id 22429
+2021-08-01  8:32:49 0 [Note] C:\moodle_wnmp_64\mariadb\bin\mysqld.exe: Shutdown complete
+

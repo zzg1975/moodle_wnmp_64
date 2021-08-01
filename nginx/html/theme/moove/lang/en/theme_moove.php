@@ -81,6 +81,7 @@ $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
 $string['courselistview'] = 'Enable course list view';
 $string['courselistviewdesc'] = 'Switch the courses view from box to list view';
+$string['myactivecourses'] = 'My active courses';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
@@ -88,8 +89,8 @@ $string['rawscsspre'] = 'Raw initial SCSS';
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
 $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
-$string['googleanalytics'] = 'Google Analytics Code';
-$string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
+$string['googleanalytics'] = 'Google Analytics V4 Code';
+$string['googleanalyticsdesc'] = 'Please enter your Google Analytics V4 code to enable analytics on your website. The code format shold be like [G-XXXXXXXXXX]';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';
@@ -97,6 +98,8 @@ $string['disablefrontpageloginbox'] = 'Disable frontpage login box';
 $string['disablefrontpageloginboxdesc'] = 'If you check it, the frontpage login box will be hidden and a link to the login page will be printed in the header bar.';
 $string['headerimg'] = 'Header image';
 $string['headerimgdesc'] = 'Upload your custom header-image here if you want to add it to the header.mage works best if (Image size should be 1500px x 700px)';
+$string['alert'] = 'Homepage Alert';
+$string['alert_desc'] = 'This is a special alert message that will appear on the frontpage and on every users dashboard.';
 $string['bannerheading'] = 'Banner Heading';
 $string['bannerheadingdesc'] = 'Enter Banner Heading Text';
 $string['bannercontent'] = 'Banner Content';
@@ -219,6 +222,8 @@ $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['whatsapp'] = 'Whatsapp number';
 $string['whatsappdesc'] = 'Enter your whatsapp number for contact.';
+$string['telegram'] = 'Telegram';
+$string['telegramdesc'] = 'Enter your Telegram contact or group link.';
 $string['topfooterimg'] = 'Footer image';
 $string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
 

@@ -1,9 +1,9 @@
 This snapshot was automatically generated on
-Tue, 01 Jun 2021 23:12:05 +0000
+Thu, 29 Jul 2021 14:37:57 +0000
 
-Version: 8.0.7
+Version: 8.0.9
 Branch: HEAD
-Build: C:\php-snap-build\php80\vs16\x64\obj\Release
+Build: D:\a\php-ftw\php-ftw\php\vs16\x64\obj\Release
 
 Built-in Extensions
 ===========================

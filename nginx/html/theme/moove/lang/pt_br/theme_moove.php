@@ -88,8 +88,8 @@ $string['rawscsspre'] = 'SCSS inicial puro';
 $string['rawscsspre_desc'] = 'Neste campo você pode fornecer código SCSS de inicialização, ele será injetado antes de tudo. Na maioria dos casos você usará esta configuração para setar variáveis.';
 $string['rawscss'] = 'SCSS puro';
 $string['rawscss_desc'] = 'Use este campo para fornecer código SCSS ou CSS que será injetado no final do arquivos de estilos.';
-$string['googleanalytics'] = 'Código do Google Analytics';
-$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
+$string['googleanalytics'] = 'Código do Google Analytics V4';
+$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics V4 para habilitá-lo no seu site. O código deve ter o formato [G-XXXXXXXXXX]';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Página inicial';
@@ -97,6 +97,8 @@ $string['disablefrontpageloginbox'] = 'Desabilitar caixa de login da página ini
 $string['disablefrontpageloginboxdesc'] = 'Se você marcar isto, a caixa de login da página inicial será oculta e um link para a página de login será exibido na barra de cabeçalho.';
 $string['headerimg'] = 'Imagem do cabeçalho';
 $string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1400px x 700px';
+$string['alert'] = 'Alerta na página de inicio';
+$string['alert_desc'] = 'Esta é uma mensagem especial de alerta que aparecerá na página inicial do site e na página de painel.';
 $string['bannerheading'] = 'Banner de cabeçalho';
 $string['bannerheadingdesc'] = 'Digite o texto do banner de cabeçalho';
 $string['bannercontent'] = 'Conteúdo do banner';
@@ -219,6 +221,8 @@ $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['whatsapp'] = 'Whatsapp';
 $string['whatsappdesc'] = 'Digite o número do seu whatsapp para contato.';
+$string['telegram'] = 'Telegram';
+$string['telegramdesc'] = 'Digite seu contato do Telegram ou link do grupo.';
 $string['topfooterimg'] = 'Imagem do rodapé';
 $string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão. Tamanho recomendado 1500px x 400px ou maior.';
 

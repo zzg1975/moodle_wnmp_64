@@ -79,7 +79,7 @@
                                                 <img src="{{profilepicture}}" alt="{{{firstname}}} {{{lastname}}}">
                                             </div>
 
-                                            <h3>{{{firstname}}} {{{lastname}}}</h3>
+                                            <h3>{{{fullname}}}</h3>
                                         {{/user}}
                                     </div>
                                     <div class="card-footer">
@@ -89,9 +89,10 @@
                                                 href="{{{url}}}"
                                                 class="{{{class}}}"
                                                 {{#linkattributes}}
-                                                id="{{{id}}}"
-                                                data-userid="{{{data-userid}}}"
-                                                data-is-contact="{{{data-is-contact}}}"
+                                                    id="{{{id}}}"
+                                                    data-userid="{{{data-userid}}}"
+                                                    data-is-contact="{{{data-is-contact}}}"
+                                                    data-currentuserid="{{{data-currentuserid}}}"
                                                 {{/linkattributes}}
                                             >
                                                 <span>

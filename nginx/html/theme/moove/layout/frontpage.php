@@ -48,6 +48,9 @@ if (isloggedin()) {
         $extraclasses[] = 'drawer-open-right';
     }
 
+    $alertmsg = theme_moove_get_setting('alertmsg');
+    $alertcontent = (empty($alertmsg)) ? false : format_text($alertmsg, FORMAT_HTML, ['noclean' => true]);
+
     $bodyattributes = $OUTPUT->body_attributes($extraclasses);
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
     $templatecontext = [
@@ -60,7 +63,8 @@ if (isloggedin()) {
         'navdraweropen' => $navdraweropen,
         'draweropenright' => $draweropenright,
         'regionmainsettingsmenu' => $regionmainsettingsmenu,
-        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+        'alertcontent' => $alertcontent
     ];
 
     // Improve boost navigation.

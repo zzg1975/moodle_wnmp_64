@@ -282,6 +282,8 @@ function theme_moove_extend_flat_navigation(\flat_navigation $flatnav) {
     theme_moove_delete_menuitems($flatnav);
 
     theme_moove_add_coursesections_to_navigation($flatnav);
+
+    theme_moove_rename_menuitems($flatnav);
 }
 
 /**
@@ -304,11 +306,19 @@ function theme_moove_add_certificatesmenuitem(\flat_navigation $flatnav) {
         if ($COURSE->id > 1) {
             $parentitem = $flatnav->find('competencies', \navigation_node::TYPE_SETTING);
 
+            if (!$parentitem || !$parentitem instanceof \flat_navigation_node) {
+                $parentitem = $flatnav->find('home', \navigation_node::TYPE_SETTING);
+            }
+
             $actionurl = new \moodle_url('/theme/moove/certificates.php', ['id' => $COURSE->id]);
         }
 
-        if ($COURSE->id == 1 && !$parentitem = $flatnav->find('privatefiles', \navigation_node::TYPE_SETTING)) {
-            return;
+        if ($COURSE->id == 1) {
+            $parentitem = $flatnav->find('privatefiles', \navigation_node::TYPE_SETTING);
+
+            if (!$parentitem || (!empty($parentitem) && empty($parentitem->id))) {
+                return;
+            }
         }
 
         if (!is_null($parentitem->parent)) {
@@ -356,6 +366,67 @@ function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
 
             $flatnav->remove($item->key, \navigation_node::TYPE_COURSE);
         }
+
+        if ($item->key === 'mycourses') {
+            foreach ($item->children as $key => $child) {
+                if (!theme_moove_is_course_available_to_display_in_navbar($child->key)) {
+                    $item->children->remove($child->key);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Verify if a course can be displayed in the navbar
+ *
+ * @param int $courseid
+ *
+ * @return bool
+ */
+function theme_moove_is_course_available_to_display_in_navbar($courseid) {
+    global $DB, $USER;
+
+    $course = $DB->get_record('course', ['id' => $courseid], '*');
+
+    if (!$course) {
+        return false;
+    }
+
+    if ($course->startdate != 0 && $course->startdate > time()) {
+        return false;
+    }
+
+    if ($course->enddate != 0 && $course->enddate < time()) {
+        return false;
+    }
+
+    $completion = new \completion_info($course);
+
+    if (!$completion->is_enabled()) {
+        return true;
+    }
+
+    $percentage = \core_completion\progress::get_course_progress_percentage($course, $USER->id);
+
+    if (!is_null($percentage) && $percentage == 100) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Rename navigation items text
+ *
+ * @param flat_navigation $flatnav
+ */
+function theme_moove_rename_menuitems(\flat_navigation $flatnav) {
+
+    $item = $flatnav->find('mycourses');
+
+    if ($item) {
+        $item->text = get_string('myactivecourses', 'theme_moove');
     }
 }
 
@@ -400,14 +471,6 @@ function theme_moove_add_coursesections_to_navigation(\flat_navigation $flatnav)
         }
 
         $flatnav->add($coursesections, $participantsitem->key);
-    }
-
-    $mycourses = $flatnav->find('mycourses', \navigation_node::NODETYPE_LEAF);
-
-    if ($mycourses) {
-        $flatnav->remove($mycourses->key);
-
-        $flatnav->add($mycourses, 'privatefiles');
     }
 }
 
