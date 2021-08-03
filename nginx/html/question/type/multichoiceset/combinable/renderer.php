@@ -82,13 +82,13 @@ class qtype_multichoiceset_embedded_renderer extends qtype_renderer
                     'value' => 0,
                 ));
             }
-            $cblabel = $question->make_html_inline($question->format_text(
-                                                       $ans->answer, $ans->answerformat,
-                                                       $qa, 'question', 'answer', $ansid));
 
-            $cblabeltag = html_writer::tag('label', $cblabel, array('for' => $inputattributes['id']));
-
-            $checkboxes[] = $hidden . html_writer::empty_tag('input', $inputattributes + $commonattributes) . $cblabeltag;
+            $checkboxes[] = html_writer::empty_tag('input', $inputattributes + $commonattributes) .
+                html_writer::tag('label',
+                    html_writer::span(\qtype_combined\utils::number_in_style($value, $question->answernumbering), 'answernumber') .
+                    $question->make_html_inline($question->format_text(
+                        $ans->answer, $ans->answerformat, $qa, 'question', 'answer', $ansid)),
+                    ['for' => $inputattributes['id']]);
 
             $class = 'r' . ($value % 2);
             if ($options->correctness && $isselected) {
@@ -105,8 +105,10 @@ class qtype_multichoiceset_embedded_renderer extends qtype_renderer
 
         if ('h' === $subq->get_layout()) {
             $inputwraptag = 'span';
+            $classname = 'horizontal';
         } else {
             $inputwraptag = 'div';
+            $classname = 'vertical';
         }
 
         foreach ($checkboxes as $key => $checkbox) {
@@ -115,6 +117,7 @@ class qtype_multichoiceset_embedded_renderer extends qtype_renderer
         }
 
         $result = html_writer::tag($inputwraptag, $cbhtml, array('class' => 'answer'));
+        $result = html_writer::div($result, $classname);
 
         return $result;
     }

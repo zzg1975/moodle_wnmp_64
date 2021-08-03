@@ -36,7 +36,7 @@ defined('MOODLE_INTERNAL') || die();
 class mobile {
 
     /**
-     * Returns the gapfill question type for the quiz in the mobile app.
+     * Returns the All-or-Nothing question type for the quiz in the mobile app.
      *
      * @return void
      */

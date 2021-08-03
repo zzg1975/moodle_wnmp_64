@@ -2,12 +2,10 @@ Release notes
 -------------
 
 Date          Version   Comment
-2021/04/14    1.7.5     Revert adding type to data_to_form function argument as it generates a warning on 3.10
-2021/04/14    1.7.4     Revert adding type to add_form_fragment function argument as it breaks on 3.10
-2021/04/12    1.7.3     Fix code warnings, behat errors in 3.8+.
-2021/01/12    1.7.2     Fix error in backup facility introduced in 1.7.0.
-2020/11/20    1.7.1     Add support for standard instruction flag in XML import/export.
-2020/11/17    1.7.0     Add support for displaying standard instructions.
+2021/07/09    1.10.0    Fix 3.10 answer alignment (provided by Joseph Rézeau & David Foord).
+2021/07/08    1.9.0     Add support for new Moodle 3.9 standard instruction flag.
+2021/04/25    1.8.0     Fix Behat tests for new 3.8 question interface (provided by Fabian Batioja), clean up code.
+2021/04/25    1.7.6     Clean up 3.7 code, use 1.7.x for Moodle 3.7 releases.
 2020/11/16    1.6.7     Fix 3.9 answer vertical alignment issue by copying CSS from standard multichoice question.
 2020/07/10    1.6.6     Fix 3.9 presentation issue (solution provided by James Garrett).
 2019/05/08    1.6.5     Add support for combinable question type, improve error recovery and testing (provided by J-M Vedrine)

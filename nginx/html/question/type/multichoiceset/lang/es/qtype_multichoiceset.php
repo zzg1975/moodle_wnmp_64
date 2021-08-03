@@ -33,4 +33,5 @@ $string['pluginnameediting'] = 'Editando una pregunta de opción múltiple de to
 $string['pluginnamesummary'] = 'Permite la selección de respuestas múltiples de una lista predefinida y usa la calificación de todo o nada (100% o 0%).';
 $string['privacy:metadata'] = 'The All-or-Nothing Multiple Choice plugin does not store any personal data.';
 $string['showeachanswerfeedback'] = 'Mostrar los comentarios de las respuestas seleccionadas.';
+$string['showstandardinstruction'] = 'Mostrar instrucciones estándar';
 $string['showstandardinstruction_help'] = 'Si es que se muestran o no las instrucciones &quot;Seleccione una o más:&quot; antes de las respuestas de opción múltiple de todo o nada.';
