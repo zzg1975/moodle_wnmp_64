@@ -18,7 +18,7 @@
 
 **作者：曾棕根 老师**
 
-- 2021-08-04  于宁波市北仑区
+- 2021-08-06  于宁波市北仑区
 - 邮箱：461932968@qq.com
 - 手机：18757462581
 - Moodle亚洲开发群：QQ群号263569269
@@ -54,7 +54,7 @@
       PHP Warning:  PHP Startup: Unable to load dynamic library 'php_intl.dll' 。
 - 8. 找到了System进程占用80端口的问题。
 - 9. 彻底解决了Moodle不能正常下载大于4GB文件的问题。
-- 10. PHP 8在Windows操作系统中别开启了JIT模式，否则cron.php无法正常运行。CentOS下开启JIT后，cron.php能正常运行。
+- 10. PHP 8在Windows中开启JIT后，cron.php不能正常运行。而CentOS下开启JIT后，cron.php能正常运行。
 
 ## 组件版本
 
