@@ -147,6 +147,7 @@ $string['outputdoesnotexist'] = '消息输出不存在';
 $string['outputenabled'] = '已允许输出';
 $string['outputnotavailable'] = '不可用';
 $string['outputnotconfigured'] = '未配置';
+$string['page-message-x'] = '任意消息页面';
 $string['permitted'] = '允许';
 $string['privacy'] = '隐私';
 $string['privacy:export:conversationprefix'] = '会话：';
