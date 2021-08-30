@@ -1,5 +1,72 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+26 Aug 2021, PHP 8.0.10
+
+- Core:
+  . Fixed bug #72595 (php_output_handler_append illegal write access). (cmb)
+  . Fixed bug #66719 (Weird behaviour when using get_called_class() with
+    call_user_func()). (Nikita)
+  . Fixed bug #81305 (Built-in Webserver Drops Requests With "Upgrade" Header).
+    (cmb)
+
+- BCMath:
+  . Fixed bug #78238 (BCMath returns "-0"). (cmb)
+
+- CGI:
+  . Fixed bug #80849 (HTTP Status header truncation). (cmb)
+
+- Date:
+  . Fixed bug #64975 (Error parsing when AM/PM not at the end). (Derick)
+  . Fixed bug #78984 (DateTimeZone accepting invalid UTC timezones). (Derick)
+  . Fixed bug #79580 (date_create_from_format misses leap year). (Derick)
+  . Fixed bug #80409 (DateTime::modify() loses time with 'weekday' parameter).
+    (Derick)
+
+- GD:
+  . Fixed bug #51498 (imagefilledellipse does not work for large circles). (cmb)
+
+- MySQLi:
+  . Fixed bug #74544 (Integer overflow in mysqli_real_escape_string()). (cmb,
+    johannes)
+
+- Opcache:
+  . Fixed bug #81225 (Wrong result with pow operator with JIT enabled).
+    (Dmitry)
+  . Fixed bug #81249 (Intermittent property assignment failure with JIT
+    enabled). (Dmitry)
+  . Fixed bug #81206 (Multiple PHP processes crash with JIT enabled). (cmb,
+    Nikita)
+  . Fixed bug #81272 (Segfault in var[] after array_slice with JIT). (Nikita)
+  . Fixed Bug #81255 (Memory leak in PHPUnit with functional JIT). (Dmitry)
+  . Fixed Bug #80959 (infinite loop in building cfg during JIT compilation)
+    (Nikita, Dmitry)
+  . Fixed bug #81226 (Integer overflow behavior is different with JIT
+    enabled). (Dmitry)
+
+- OpenSSL:
+  . Fixed bug #81327 (Error build openssl extension on php 7.4.22). (cmb)
+
+- PDO_ODBC:
+  . Fixed bug #81252 (PDO_ODBC doesn't account for SQL_NO_TOTAL). (cmb)
+
+- Phar:
+  . Fixed bug #81211: Symlinks are followed when creating PHAR archive (cmb)
+
+- Shmop:
+  . Fixed bug #81283 (shmop can't read beyond 2147483647 bytes). (cmb, Nikita)
+
+- SimpleXML:
+  . Fixed bug #81325 (Segfault in zif_simplexml_import_dom). (remi)
+
+- Standard:
+  . Fixed bug #72146 (Integer overflow on substr_replace). (cmb)
+  . Fixed bug #81265 (getimagesize returns 0 for 256px ICO images).
+    (George Dietrich)
+  . Fixed bug #74960 (Heap buffer overflow via str_repeat). (cmb, Dmitry)
+
+- Streams:
+  . Fixed bug #81294 (Segfault when removing a filter). (cmb)
+
 29 Jul 2021, PHP 8.0.9
 
 - Core:

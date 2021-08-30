@@ -6,8 +6,8 @@
 
 .que.multichoiceset .answer div.r0,
 .que.multichoiceset .answer div.r1 {
-    text-indent: 0px !Important;
     display: flex;
+    margin: 0.25rem 0;
     align-items: baseline;
 }
 

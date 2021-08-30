@@ -1,7 +1,7 @@
 This snapshot was automatically generated on
-Thu, 29 Jul 2021 14:37:57 +0000
+Wed, 25 Aug 2021 09:18:59 +0000
 
-Version: 8.0.9
+Version: 8.0.10
 Branch: HEAD
 Build: D:\a\php-ftw\php-ftw\php\vs16\x64\obj\Release
 
