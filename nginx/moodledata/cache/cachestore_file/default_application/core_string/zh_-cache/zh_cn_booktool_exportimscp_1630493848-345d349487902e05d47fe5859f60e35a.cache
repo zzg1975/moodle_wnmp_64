@@ -1,0 +1,1 @@
+a:6:{s:17:"eventbookexported";s:15:"已导出图书";s:18:"exportimscp:export";s:27:"导出图书为IMS内容包";s:13:"generateimscp";s:13:"生成 IMS CP";s:10:"nochapters";s:58:"没有发现图书章节，因此不能导出到 IMS CP。";s:10:"pluginname";s:19:"图书导出 IMS CP";s:16:"privacy:metadata";s:63:"The Book IMS CP export plugin does not store any personal data.";}
