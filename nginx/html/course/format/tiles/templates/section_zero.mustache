@@ -59,30 +59,31 @@
         "section_zero_add_cm_control_html": ""
     }
 }}
-
 {{#section_zero_show}}
-    <li id="section-0" data-section="0" class="section main clearfix" role="region">
-        <span class="hidden sectionname">{{title}}</span>
-        {{#isediting}}
-            <a title="{{#str}}editsummary, core{{/str}}" href="{{{config.wwwroot}}}/course/editsection.php?id={{secid}}&sr={{tileid}}">
-                {{#pix}}i/settings, core{{/pix}}
-            </a>
-        {{/isediting}}
-        <div class="left side"></div>
-        <div class="right side"></div>
-        <div class="content">
-            <div class="summary">{{{summary}}}</div>
-            <ul class="section img-text {{#usesubtilesseczero}}subtiles{{/usesubtilesseczero}}{{^usesubtilesseczero}}nosubtiles{{/usesubtilesseczero}}
-                {{#useSubtiles}}{{#usesubtilesseczero}}subtiles{{/usesubtilesseczero}}{{/useSubtiles}}">
-                {{#content}}
-                    {{#course_modules}}
-                        {{>format_tiles/course_module}}
-                    {{/course_modules}}
-                {{/content}}
-            </ul>
+    {{#section_zero}}
+        <li id="section-0" data-section="0" class="section main clearfix" role="region">
+            <span class="hidden sectionname">{{title}}</span>
             {{#isediting}}
-                {{{section_zero_add_cm_control_html}}}
+                <a title="{{#str}}editsummary, core{{/str}}" href="{{{config.wwwroot}}}/course/editsection.php?id={{secid}}&sr={{tileid}}">
+                    {{#pix}}i/settings, core{{/pix}}
+                </a>
             {{/isediting}}
-        </div>
-    </li>
+            <div class="left side"></div>
+            <div class="right side"></div>
+            <div class="content">
+                <div class="summary">{{{summary}}}</div>
+                <ul class="section img-text {{#usesubtilesseczero}}subtiles{{/usesubtilesseczero}}{{^usesubtilesseczero}}nosubtiles{{/usesubtilesseczero}}
+                    {{#useSubtiles}}{{#usesubtilesseczero}}subtiles{{/usesubtilesseczero}}{{/useSubtiles}}">
+                    {{#content}}
+                        {{#course_modules}}
+                            {{>format_tiles/course_module}}
+                        {{/course_modules}}
+                    {{/content}}
+                </ul>
+                {{#isediting}}
+                    {{{section_zero_add_cm_control_html}}}
+                {{/isediting}}
+            </div>
+        </li>
+    {{/section_zero}}
 {{/section_zero_show}}

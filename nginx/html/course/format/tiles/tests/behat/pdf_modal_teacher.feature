@@ -27,8 +27,7 @@ Feature: PDFs can be set to open in modal windows with subtiles off
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
+
     When I log in as "teacher1"
     And format_tiles subtiles are off for course "Course 1"
     And I am on "Course 1" course homepage

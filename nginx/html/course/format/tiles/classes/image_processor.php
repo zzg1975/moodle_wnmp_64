@@ -182,9 +182,36 @@ class image_processor
             $originalheight);
 
         ob_start();
-        if (!$imageparams['function']($finalimage, null, $imageparams['quality'], $imageparams['filters'])) {
-            ob_end_clean();
-            return false;
+        switch($imageparams['function']) {
+            case 'imagejpeg':
+                if (!imagejpeg($finalimage, null, $imageparams['quality'])) {
+                    ob_end_clean();
+                    return false;
+                }
+                break;
+            case 'imagepng':
+                if (!imagepng($finalimage, null, $imageparams['quality'], $imageparams['filters'])) {
+                    ob_end_clean();
+                    return false;
+                }
+                break;
+            case 'imagegif':
+                if (!imagegif($finalimage)) {
+                    ob_end_clean();
+                    return false;
+                }
+                break;
+            case 'imagewebp':
+                if (!imagewebp($finalimage, null, $imageparams['quality'])) {
+                    ob_end_clean();
+                    return false;
+                }
+                break;
+            default:
+                if (!$imageparams['function']($finalimage, null, $imageparams['quality'], $imageparams['filters'])) {
+                    ob_end_clean();
+                    return false;
+                }
         }
         $data = ob_get_clean();
 

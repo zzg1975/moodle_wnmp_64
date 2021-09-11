@@ -28,8 +28,6 @@ Feature: Teacher can allocate icons to tiles
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
 
   @javascript
   Scenario: Teacher can use icon picker to pick icons, and can rename section afterwards

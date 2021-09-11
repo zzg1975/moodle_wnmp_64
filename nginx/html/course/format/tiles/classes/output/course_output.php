@@ -125,13 +125,19 @@ class course_output implements \renderable, \templatable
     private $usingjsnav;
 
     /**
+     * Are we showing activity completion conditions (Moodle 3.11+).
+     * @var bool
+     */
+    private $showcompletionconditions;
+
+    /**
      * course_output constructor.
      * @param \stdClass $course the course object.
      * @param bool $fromajax Whether we are rendering for AJAX request.
      * @param int $sectionnum the id of the current section
      * @param \renderer_base|null $courserenderer
      */
-    public function __construct($course, $fromajax = false, $sectionnum = 0, \renderer_base $courserenderer = null) {
+    public function __construct($course, $fromajax = false, $sectionnum = null, \renderer_base $courserenderer = null) {
         global $PAGE;
         $this->course = $course;
         $this->fromajax = $fromajax;
@@ -155,6 +161,7 @@ class course_output implements \renderable, \templatable
         $this->courseformatoptions = $this->get_course_format_options($this->fromajax);
         $this->usingjsnav = get_config('format_tiles', 'usejavascriptnav')
             && !get_user_preferences('format_tiles_stopjsnav');
+        $this->showcompletionconditions = isset($course->showcompletionconditions) && $course->showcompletionconditions;
     }
 
     /**
@@ -170,9 +177,13 @@ class course_output implements \renderable, \templatable
         $data = $this->append_section_zero_data($data, $output);
         // We have assembled the "common data" needed for both single and multiple section pages.
         // Now we can go off and get the specific data for the single or multiple page as required.
-        if ($this->sectionnum) {
+        if ($this->sectionnum !== null) {
             // We are outputting a single section page.
-            return $this->append_single_section_page_data($output, $data);
+            if ($this->sectionnum == 0) {
+                return $this->append_section_zero_data($data, $output);
+            } else {
+                return $this->append_single_section_page_data($output, $data);
+            }
         } else {
             // We are outputting a single section page.
             return $this->append_multi_section_page_data($output, $data);
@@ -300,7 +311,7 @@ class course_output implements \renderable, \templatable
         // If we have nothing to output, don't.
         if (!($thissection = $this->modinfo->get_section_info($this->sectionnum))) {
             // This section doesn't exist.
-            print_error('unknowncoursesection', 'error', null, $this->course->fullname);
+            debugging('Unknown course section ' . $this->sectionnum, DEBUG_DEVELOPER);
             return $data;
         }
         if (!$thissection->uservisible) {
@@ -310,7 +321,11 @@ class course_output implements \renderable, \templatable
         }
 
         // Data for the requested section page.
-        $data['title'] = get_section_name($this->course, $thissection->section);
+        $data['title'] = format_string(get_section_name($this->course, $thissection->section));
+        if (get_config('format_tiles', 'enablelinebreakfilter')) {
+            // No need to line break here as we have plenty of room, so remove the char by passing true.
+            $data['title'] = $this->apply_linebreak_filter($data['title'], true);
+        }
         $data['summary'] = $output->format_summary_text($thissection);
         $data['tileid'] = $thissection->section;
         $data['secid'] = $thissection->id;
@@ -407,13 +422,14 @@ class course_output implements \renderable, \templatable
         $previoussectionnumber = 0;
         $previoustiletitle = '';
         $countincludedsections = 0;
+        $uselinebreakfilter = get_config('format_tiles', 'enablelinebreakfilter');
         foreach ($this->modinfo->get_section_info_all() as $sectionnum => $section) {
             // Show the section if the user is permitted to access it, OR if it's not available
             // but there is some available info text which explains the reason & should display,
             // OR it is hidden but the course has a setting to display hidden sections as unavilable.
 
             // If we have sections with numbers greater than the max allowed, do not show them unless teacher.
-            // (Showing more to editors allows editor to fix them.)
+            // (Showing more to editors allows editor to fix them).
             if ($countincludedsections > $maxallowedsections) {
                 if (!$data['canedit']) {
                     // Do not show them to students at all.
@@ -439,7 +455,11 @@ class course_output implements \renderable, \templatable
             $showsection = $section->uservisible ||
                 ($section->visible && !$section->available && !empty($section->availableinfo));
             if ($sectionnum != 0 && $showsection) {
-                $title = htmlspecialchars_decode($this->truncate_title(get_section_name($this->course, $sectionnum)));
+                if ($uselinebreakfilter) {
+                    $title = $this->apply_linebreak_filter($this->truncate_title(get_section_name($this->course, $sectionnum)));
+                } else {
+                    $title = format_string($this->truncate_title(get_section_name($this->course, $sectionnum)));
+                }
                 if ($allowedphototiles && $usingphotoaltstyle && $isphototile) {
                     // Replace the last space with &nbsp; to avoid having one word on the last line of the tile title.
                     $title = preg_replace('/\s(\S*)$/', '&nbsp;$1', $title);
@@ -620,6 +640,7 @@ class course_output implements \renderable, \templatable
                 );
             }
         }
+        $data['moodlefiltersconfig'] = $this->get_filters_config();
         return $data;
     }
 
@@ -637,7 +658,7 @@ class course_output implements \renderable, \templatable
         $outof = 0;
         foreach ($sectioncmids as $cmid) {
             $thismod = $coursecms[$cmid];
-            if ($thismod->uservisible && !$this->treat_as_label($thismod)) {
+            if ($thismod->uservisible && !$thismod->deletioninprogress) {
                 if ($this->completioninfo->is_enabled($thismod) != COMPLETION_TRACKING_NONE) {
                     $outof++;
                     $completiondata = $this->completioninfo->get_data($thismod, true);
@@ -789,6 +810,26 @@ class course_output implements \renderable, \templatable
     }
 
     /**
+     * Watch for the word joiner character '&#8288;' in very long tile titles.
+     * When encountered on a tile title, this char is changed to '- ' to allow the text to wrap.
+     * This is useful on tiles with long words in the title (e.g. German language).
+     * @param string $text
+     * @param bool $remove if we want just to remove the flag (no need to line break), pass true.
+     * @return string
+     */
+    private function apply_linebreak_filter(string $text, $remove = false) {
+        $zerowidthspace = '&#8288;';
+        $maxwidthfortilechars = 15;
+        if (!$remove && strlen($text) > $maxwidthfortilechars) {
+            // If the title is long, we want to line break with a -, so replace the zero width space with hyphen space.
+            return format_string(str_replace($zerowidthspace, '- ', $text));
+        } else {
+            // If the title is short, we don't need to line break so delete the flag.
+            return format_string(str_replace($zerowidthspace, '', $text));
+        }
+    }
+
+    /**
      * Gets the data (context) to be used with the activityinstance template
      * @param object $section the section object we want content for
      * @param \renderer_base $output
@@ -817,6 +858,9 @@ class course_output implements \renderable, \templatable
         $sectioncontent = [];
         foreach ($cmids as $index => $cmid) {
             $mod = $this->modinfo->get_cm($cmid);
+            if ($mod->deletioninprogress) {
+                continue;
+            }
             $treataslabel = $this->treat_as_label($mod);
             $moduledata = $this->course_module_data(
                 $mod,
@@ -826,9 +870,10 @@ class course_output implements \renderable, \templatable
                 $index == 0,
                 $output
             );
-            $previouswaslabel = $treataslabel;
+
             if (!empty($moduledata)) {
                 $sectioncontent[] = $moduledata;
+                $previouswaslabel = $treataslabel;
             }
 
         }
@@ -849,7 +894,7 @@ class course_output implements \renderable, \templatable
      * @throws \moodle_exception
      */
     private function course_module_data($mod, $treataslabel, $section, $previouswaslabel, $isfirst, $output) {
-        global $PAGE, $CFG, $DB;
+        global $PAGE, $CFG, $DB, $USER;
         $moduleobject = [];
         if ($this->canviewhidden) {
             $moduleobject['uservisible'] = true;
@@ -863,6 +908,20 @@ class course_output implements \renderable, \templatable
             $moduleobject['uservisible'] = $mod->uservisible;
             $moduleobject['clickable'] = $mod->uservisible;
         }
+        // From Moodle 3.11 onwards, we may have extra completion conditions info to display under activities.
+        if (class_exists('\core\activity_dates') && isset($this->showcompletionconditions)
+            && $this->showcompletionconditions) {
+            $activitydates = \core\activity_dates::get_dates_for_module($mod, $USER->id);
+            $completiondetails = \core_completion\cm_completion_details::get_instance(
+                $mod, $USER->id, $this->showcompletionconditions
+            );
+            if ($completiondetails->has_completion() || !empty($activitydates)) {
+                // No need to render the activity information when there's no completion info and activity dates to show.
+                $activityinfo = new \core_course\output\activity_information($mod, $completiondetails, $activitydates);
+                $moduleobject['activityinformation'] = $activityinfo->export_for_template($output);
+            }
+        }
+
         // We check that the stealth function exists in case we are running in Totara or earlier Moodle, where it doesn't.
         $isstealth = method_exists($mod, 'is_stealth') && $mod->is_stealth();
         if (!$moduleobject['uservisible'] || $mod->deletioninprogress || (!$this->canviewhidden && $isstealth)) {
@@ -909,22 +968,19 @@ class course_output implements \renderable, \templatable
                 $moduleobject['launchtype'] = 'resource-modal';
                 $moduleobject['pluginfileUrl'] = $this->plugin_file_url($mod);
             } else {
-                // We don't want to embed the file in a modal.
-                // If this is a mobile device or tablet, override the standard URL (already allocated above).
-                // Then user can access file natively in their device (better than embedded).
-                // Otherwise the standard URL will remain i.e. mod/resource/view.php?id=...
-                if ($this->devicetype == \core_useragent::DEVICETYPE_TABLET
-                    || $this->devicetype == \core_useragent::DEVICETYPE_MOBILE) {
-                    $moduleobject['url'] = $this->plugin_file_url($mod);
-                } else {
-                    // We are not using modal, so add the standard moodle onclick event to the link to launch pop up if appropriate.
-                    if ($onclick = $mod->onclick) {
-                        $moduleobject['onclick'] = str_replace('&amp;', '&', $mod->onclick);
-                        $moduleobject['launchtype'] = 'resource-popup';
-                    }
+                // We are not using modal, so add the standard moodle onclick event to the link to launch pop up if appropriate.
+                if ($mod->onclick) {
+                    $moduleobject['onclick'] = str_replace('&amp;', '&', $mod->onclick);
+                    $moduleobject['launchtype'] = 'resource-popup';
                 }
             }
         }
+
+        // Issue 67 handling for LTI set to open in new window.
+        if ($mod->modname == 'lti' && $mod->onclick) {
+            $moduleobject['onclick'] = str_replace('&amp;', '&', $mod->onclick);
+        }
+
         // Specific handling for embedded course module items (e.g. page) as allowed by site admin.
         if (array_search($mod->modname, $this->usemodalsforcoursemodules['modules']) !== false) {
             $moduleobject['isEmbeddedModule'] = 1;
@@ -945,18 +1001,17 @@ class course_output implements \renderable, \templatable
             (!$mod->visible && !$mod->visibleold)
             || !$mod->available
             || !$section->visible
-            || (isset($moduleobject['availabilitymessage']) && strlen($moduleobject['availabilitymessage']) > 1 )
         ) {
             $moduleobject['extraclasses'] .= ' dimmed';
         }
-        if ($mod->completionview == COMPLETION_VIEW_REQUIRED) {
+        if ($mod->completion == COMPLETION_TRACKING_MANUAL) {
+            $moduleobject['extraclasses'] .= " completeonmanual";
+        } else if ($mod->completionview == COMPLETION_VIEW_REQUIRED) {
             // Auto completion with a view required.
             $moduleobject['extraclasses'] .= " completeonview";
         } else if ($mod->completion == COMPLETION_TRACKING_AUTOMATIC) {
             // Auto completion with no view required (e.g. grade required).
             $moduleobject['extraclasses'] .= " completeonevent";
-        } else if ($mod->completion == COMPLETION_TRACKING_MANUAL) {
-            $moduleobject['extraclasses'] .= " completeonmanual";
         }
         if ($this->isediting) {
             $moduleobject['cmmove'] = course_get_cm_move($mod, $section->section);
@@ -966,8 +1021,10 @@ class course_output implements \renderable, \templatable
                 $moduleobject['extraclasses'] .= " margin-rt";
                 // We need to change the right margin in CSS if the edit menu contains a separate groups item.
             }
-
-            $moduleobject['cmeditmenu'] = $this->courserenderer->course_section_cm_edit_actions($editactions, $mod);
+            $displayoptions = ['constraintselector' => '#multi_section_tiles'];
+            $moduleobject['cmeditmenu'] = $this->courserenderer->course_section_cm_edit_actions(
+                $editactions, $mod, $displayoptions
+            );
             $moduleobject['cmeditmenu'] .= $mod->afterediticons;
             if (!$this->treat_as_label($mod)) {
                 if (!$mod->visible || !$section->visible) {
@@ -977,12 +1034,12 @@ class course_output implements \renderable, \templatable
                 }
                 $moduleobject['modtitle_inplaceeditable'] = array(
                     "displayvalue" => \html_writer::link($mod->url, $mod->get_formatted_name(), $attr),
-                    "value" => $mod->name,
+                    "value" => $mod->get_formatted_name(),
                     "itemid" => $mod->id,
                     "component" => "core_course",
                     "itemtype" => "activityname",
                     "edithint" => get_string('edit'),
-                    "editlabel" => get_string('newactivityname') . $mod->name,
+                    "editlabel" => get_string('newactivityname') . $mod->get_formatted_name(),
                     "type" => "text",
                     "options" => "",
                     "linkeverything" => 0
@@ -1396,4 +1453,38 @@ class course_output implements \renderable, \templatable
 
         return false;
     }
+
+    /**
+     * MathJax does not always seem to load (issue #60) so we assemble data so we can load it ourselves.
+     * Also JS needs to know if "h5p" filter is being used, so we do that at the same time.
+     * @return array
+     * @throws \dml_exception
+     */
+    private function get_filters_config() {
+        $activefilters = filter_get_active_in_context($this->coursecontext);
+        $result = [];
+        foreach ($activefilters as $filter => $v) {
+            if ($filter == 'mathjaxloader') {
+                // Filter in use.
+                $url = get_config('filter_mathjaxloader', 'httpsurl');
+                if ($url) {
+                    $result[] = [
+                        'filter' => $filter,
+                        'config' => [
+                            ['key' => 'url', 'value' => $url],
+                            ['key' => 'config', 'value' => get_config('filter_mathjaxloader', 'mathjaxconfig')]
+                        ]
+                    ];
+                }
+            } else if ($filter === 'h5p') {
+                // Need to know if we are using H5P filter as this may mean that we don't want to preload next sections.
+                // If we did, when section pre-loads, any H5P filter activities set to 'complete on view' are complete.
+                // This applies even if section is not ultimately viewed at all.
+                $result[] = ['filter' => $filter];
+            }
+        }
+        return $result;
+    }
+
 }
+

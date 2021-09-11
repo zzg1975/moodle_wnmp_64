@@ -167,8 +167,6 @@ define(["jquery", "format_tiles/browser_storage_set_up"], function ($, storageSe
         init: function(
             userIdInit,
             courseIdInit,
-            maxContentSectionsToStore,
-            storedContentDeleteMins,
             assumeDataStoreConsent,
             lastSectionNum,
             collapsingAllFromURL
@@ -180,10 +178,7 @@ define(["jquery", "format_tiles/browser_storage_set_up"], function ($, storageSe
             }
             $(document).ready(function () {
                 storageSetUp.init(userId, assumeDataStoreConsent, clearStorage);
-                if (parseInt(maxContentSectionsToStore) === 0) {
-                    storageSetUp.setAllowed(false);
-                    return;
-                }
+
                 clearStoredContent();
                 if (storageSetUp.storageAllowed()) {
                     sessionStorage.setItem(StorageKeys.COURSE_VISIT + courseId + StorageKeys.USER + userId, Date.now().toString());

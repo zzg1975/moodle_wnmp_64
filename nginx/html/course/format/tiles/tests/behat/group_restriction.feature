@@ -29,8 +29,6 @@ Feature: Teacher can restrict course modules to groups
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
       | enableavailability     | 1        | core         |
-      | jsmaxstoreditems       | 0        | format_tiles |
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
 
     And the following "groups" exist:
       | name    | course | idnumber |

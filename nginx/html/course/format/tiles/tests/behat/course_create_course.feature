@@ -15,7 +15,6 @@ Feature: Create course in format tiles
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
 
   @javascript
   Scenario: Latest course announcements are displayed and can be configured

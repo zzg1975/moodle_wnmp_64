@@ -28,7 +28,6 @@ Feature: user can select whether or not data is stored in browser
       | assumedatastoreconsent | 0     | format_tiles |
       | reopenlastsection      | 0     | format_tiles |
       | usejavascriptnav       | 1     | format_tiles |
-      | jsmaxstoreditems       | 8     | format_tiles |
 
     And I log in as "student-datapref1"
 

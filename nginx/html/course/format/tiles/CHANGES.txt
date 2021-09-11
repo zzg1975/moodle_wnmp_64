@@ -233,3 +233,72 @@ Other
 3.9.0.13 (2020080613)
 =====================
 - Fix tests for Moodle 3.10
+
+3.9.0.14 (2020080614)
+=====================
+- Fix issue #61 Restricted activities / sections respond to clicks on others
+- Fix URL on out of sequence warning.
+
+3.9.0.15 (2020080615) (RELEASE CANDIDATE)
+=========================================
+- Compatibility for Moodle 3.11 incl new completion tracking activity info.
+- Fix issue #61, issue #75, issue #78 (completion no updating or not updating restrictions).
+- Fix issue #70 escape chars in mod title.
+- Fix issue 74 typo in image upload guidance.
+- Fix issue #67 LTI to open in new window.
+- Fix issue #50 PDF view log on mobile.
+- Fix incorrect lang string.
+- Fix issue #77 page description image not displaying.
+- Fix issue #73 (allow completion for labels).
+
+3.9.0.16 (2020080616) (RELEASE CANDIDATE)
+=========================================
+- Improve wrapping of tile and sub-tile titles where long (incl new line break feature).
+- Improve section completion checks on completion change.
+
+3.11.0.1 (2020080617) (RELEASE CANDIDATE)
+=========================================
+- Add Mathjax support
+- Improve section completion checks on completion change.
+- Remove browser content storage (simplifies code, better for completion, fixes issue #31, fixes issue #69).
+- Fix minor course settings page issue re subtiles in section zero.
+
+3.11.0.2 (2020080618) (RELEASE CANDIDATE)
+=========================================
+- Fix issue #52 scrolling after video new window
+- Fix issue #53 show page contents to users with editing rights
+- Amend lang strings
+
+3.11.0.3 (2020080619) (RELEASE CANDIDATE)
+=========================================
+- Fix issue #79 remove old unnecessary core tests
+
+3.11.0.4 (2020080620) (RELEASE CANDIDATE)
+=========================================
+- Hide lock when tile becomes visible on completion change.
+- Change the line break filter character to &#8288; (word joiner character).
+- Fix minor issue with course module modal completion track button on launch.
+
+3.11.0.5 (2020080621) (RELEASE CANDIDATE)
+=========================================
+- Fix issue with H5P modal being too small sometimes
+- Fix issue 65 Add mod datalynxcoursepage to $labellikecoursemods
+
+3.11.0.6 (2020080623) (RELEASE CANDIDATE)
+=========================================
+- Fix issue #60 mathjax not loading
+- Fix issue with jpeg filter param count
+
+3.11.1.0 (2020080625)
+=====================
+- Change "Release Candidate" tag to "Stable"
+
+3.11.1.1 (2020080626)
+======================
+- Fix hidden items showing as empty elems
+- Fix missing </button> tag hiding next item
+
+3.11.1.2 (2020080628)
+======================
+- Fix issue with completion hiding sec zero content
+- Fix issue #82 special chars in mod title

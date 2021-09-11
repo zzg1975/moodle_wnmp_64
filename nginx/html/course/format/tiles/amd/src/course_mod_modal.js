@@ -44,14 +44,15 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
         var courseId;
 
         var Selector = {
-            toggleCompletion: ".togglecompletion",
+            completioncheckbox: ".completioncheckbox",
+            completionAuto: ".completion-auto",
             modal: ".modal",
             modalDialog: ".modal-dialog",
             modalBody: ".modal-body",
             sectionMain: ".section.main",
             pageContent: "#page-content",
             regionMain: "#region-main",
-            completionState: "#completionstate_",
+            completionState: "#completion-check-",
             cmModalClose: ".embed_cm_modal .close",
             cmModal: ".embed_cm_modal",
             moodleMediaPlayer: ".mediaplugin_videojs",
@@ -61,7 +62,13 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
             URLACTIVITYPOPUPLINK: ".activity.modtype_url.urlpopup a",
             newWindowButton: ".button_expand",
             modalHeader: ".modal-header",
-            embedModuleButtons: ".embed-module-buttons"
+            embedModuleButtons: ".embed-module-buttons",
+            iframe: "iframe"
+        };
+
+        const CLASS = {
+            COMPLETION_MANUAL: "completeonmanual",
+            COMPLETION_AUTO: "completion-auto"
         };
 
         var LaunchModalDataActions = {
@@ -79,10 +86,10 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
          * @param {object} modal the modal which contains the video.
          */
         var stopAllVideosOnDismiss = function(modal) {
-            var iframes = modal.find("iframe");
+            var iframes = modal.find(Selector.iframe);
             if (iframes.length > 0) {
                 modal.find(Selector.closeBtn).click(function(e) {
-                    $(e.currentTarget).closest(Selector.cmModal).find("iframe").each(function (index, iframe) {
+                    $(e.currentTarget).closest(Selector.cmModal).find(Selector.iframe).each(function (index, iframe) {
                         iframe = $(iframe);
                         iframe.attr('src', iframe.attr("src"));
                     });
@@ -130,7 +137,7 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                 modalRoot.attr("id", "embed_mod_modal_" + cmid);
                 modalRoot.attr("data-cmid", cmid);
                 modalRoot.addClass("embed_cm_modal");
-
+                const sectionNum = clickedCmObject.closest(Selector.sectionMain).attr("data-section");
                 // Render the modal body and set it to the page.
                 // First a blank template data object.
                 var templateData = {
@@ -140,14 +147,15 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                     width: "100%",
                     height: Math.round(win.height() - 60), // Embedded object height in modal - make as high as poss.
                     cmid: cmid,
-                    tileid: clickedCmObject.closest(Selector.sectionMain).attr("data-section"),
+                    tileid: sectionNum,
                     isediting: 0,
                     sesskey: config.sesskey,
                     modtitle: clickedCmObject.attr("data-title"),
                     config: {wwwroot: config.wwwroot},
                     showDownload: 0,
                     showNewWindow: 0,
-                    completionInUseForCm: 0
+                    completionInUseForCm: 0,
+                    completionstring: ''
                 };
 
                 // If it's a PDF in this modal, change from the defaults assigned above.
@@ -176,16 +184,19 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
 
                 }).fail(Notification.exception);
                 // Render the modal header / title and set it to the page.
-                if (clickedCmObject.find(Selector.toggleCompletion).length !== 0) {
-                    var inverseCompletionState = parseInt(
-                        $(Selector.completionState + cmid).attr("value")
-                    );
+                const checkBox = clickedCmObject.find(Selector.completioncheckbox);
+                if (checkBox.length !== 0) {
+                    templateData.completionstate = clickedCmObject.hasClass(CLASS.COMPLETION_AUTO)
+                        ? 1 : parseInt(checkBox.attr('data-completionstate'));
                     templateData.completionInUseForCm = 1;
-                    templateData.completionstate = 1 - inverseCompletionState;
-                    templateData.completionicon = inverseCompletionState === 1 ? 'n' : 'y';
-                    templateData.completionstateInverse = inverseCompletionState;
-                    templateData.completionIsManual = clickedCmObject
-                        .find(Selector.toggleCompletion).attr("data-ismanual");
+                    templateData.completionicon = templateData.completionstate === 1 ? 'y' : 'n';
+                    templateData.completionstateInverse = 1 - templateData.completionstate;
+                    templateData.completionIsManual = clickedCmObject.hasClass(CLASS.COMPLETION_MANUAL);
+                    templateData.completionstring = checkBox.attr('title');
+                    // Trigger event to check if other items in course have updated availability.
+                    require(["format_tiles/completion"], function (completion) {
+                        completion.triggerCompletionChangedEvent(sectionNum);
+                    });
                 }
                 Templates.render("format_tiles/embed_module_modal_header_btns", templateData).done(function (html) {
                     modalRoot.find(Selector.modalHeader).append(html);
@@ -224,6 +235,7 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
 
                 var modalWidth = Math.round(win.width() * 0.9);
                 var modalHeight = Math.round(win.height() * 0.9);
+                const sectionNum = clickedCmObject.closest(Selector.sectionMain).attr("data-section");
                 var templateData = {
                     id: cmid,
                     pluginfileUrl: clickedCmObject.attr("data-url"),
@@ -231,7 +243,7 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                     width: modalWidth - 30,
                     height: modalHeight - 30,
                     cmid: cmid,
-                    tileid: clickedCmObject.closest(Selector.sectionMain).attr("data-section"),
+                    tileid: sectionNum,
                     isediting: 0,
                     sesskey: config.sesskey,
                     modtitle: clickedCmObject.attr("data-title"),
@@ -252,16 +264,19 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                     modalRoot.find(Selector.modalBody).addClass("text-center");
                 }).fail(Notification.exception);
                 // Render the modal header / title and set it to the page.
-                if (clickedCmObject.find(Selector.toggleCompletion).length !== 0) {
-                    var inverseCompletionState = parseInt(
-                        $(Selector.completionState + cmid).attr("value")
-                    );
+                const checkBox = clickedCmObject.find(Selector.completioncheckbox);
+                if (checkBox.length !== 0) {
+                    templateData.completionstate = clickedCmObject.hasClass(CLASS.COMPLETION_AUTO)
+                        ? 1 : parseInt(checkBox.attr('data-completionstate'));
                     templateData.completionInUseForCm = 1;
-                    templateData.completionstate = 1 - inverseCompletionState;
-                    templateData.completionicon = inverseCompletionState === 1 ? 'n' : 'y';
-                    templateData.completionstateInverse = inverseCompletionState;
-                    templateData.completionIsManual = clickedCmObject
-                        .find(Selector.toggleCompletion).attr("data-ismanual");
+                    templateData.completionicon = templateData.completionstate === 1 ? 'y' : 'n';
+                    templateData.completionstateInverse = 1 - templateData.completionstate;
+                    templateData.completionIsManual = clickedCmObject.hasClass(CLASS.COMPLETION_MANUAL);
+                    templateData.completionstring = checkBox.attr('title');
+                    // Trigger event to check if other items in course have updated availability.
+                    require(["format_tiles/completion"], function (completion) {
+                        completion.triggerCompletionChangedEvent(sectionNum);
+                    });
                 }
                 Templates.render("format_tiles/embed_module_modal_header_btns", templateData).done(function (html) {
                     modalRoot.find(Selector.modalHeader).append(html);
@@ -272,6 +287,7 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                 // Important for video which may end up playing twice otherwise.
                 setTimeout(function() {
                     modalRoot.find(Selector.newWindowButton).click(function() {
+                        modalStore[modalRoot.attr("data-cmid")].hide();
                         modalStore[modalRoot.attr("data-cmid")] = undefined;
                         modalRoot.remove();
                         $(".modal-backdrop").not("#window-overlay").removeClass("show").addClass("hide");
@@ -283,6 +299,10 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
             return false;
         };
 
+        /**
+         * Resize the modal to account for its content.
+         * @param {object} modalRoot
+         */
         var resizeModal = function(modalRoot) {
             modalRoot.find(Selector.modal).animate({"max-width": modalMinWidth()}, "fast");
 
@@ -298,9 +318,9 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                 stopAllVideosOnDismiss(modalRoot);
             }
 
-            // If the activity contains an iframe (e.g. is a page with a YouTube video in it), ensure modal is big enough.
+            // If the activity contains an iframe (e.g. is a page with a YouTube video in it, or H5P), ensure modal is big enough.
             // Do this for every iframe in the course module.
-            modalRoot.find("iframe").each(function (index, iframe) {
+            modalRoot.find(Selector.iframe).each(function (index, iframe) {
 
                 // Get the modal.
                 var modal;
@@ -329,10 +349,33 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                 var iframeHeight = Math.min($(iframe).height(), win.height());
                 var modalBody = modalRoot.find(Selector.modalBody);
                 if (iframeHeight > modalBody.height() - MODAL_MARGIN) {
-                    modalBody.animate({"min-height": Math.min(iframeHeight + MODAL_MARGIN, win.height())}, "fast");
+                    modalBody.animate({"min-height": Math.min(iframeHeight + MODAL_MARGIN, win.height()) + 1}, "fast");
                 }
                 stopAllVideosOnDismiss(modalRoot);
             });
+        };
+
+        /**
+         * Check the modal height to see if the iframe in it is bigger.  If it is, adjust modal height up.
+         * Do this a few times so that, if iframe content is loading, we can check after it's loaded.
+         * @param {object} modalRoot
+         * @param {number} howManyChecks
+         * @param {number}duration
+         * @param {number} oldHeight
+         */
+        const modalHeightChangeWatcher = function (modalRoot, howManyChecks, duration, oldHeight = 0) {
+            const iframe = modalRoot.find(Selector.modalBody);
+            if (iframe) {
+                const newHeight = Math.round(iframe.height());
+                if (newHeight && newHeight > oldHeight + 10) {
+                    resizeModal(modalRoot);
+                }
+                if (howManyChecks > 0) {
+                    setTimeout(() => {
+                        modalHeightChangeWatcher(modalRoot, howManyChecks - 1, duration, newHeight);
+                    }, duration);
+                }
+            }
         };
 
         // TODO refactor these to avoid repetition.
@@ -367,23 +410,26 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                         cmid: cmid
                     }
                 }])[0].done(function(response) {
+                    const sectionNum = clickedCmObject.closest(Selector.sectionMain).attr("data-section");
                     var templateData = {
                         cmid: cmid,
                         modtitle: clickedCmObject.attr("data-title"),
+                        tileid: sectionNum,
                         content: response.html
                     };
-                    if (clickedCmObject.find(Selector.toggleCompletion).length !== 0) {
-                        var inverseCompletionState = parseInt(
-                            $(Selector.completionState + cmid).attr("value")
-                        );
+                    const checkBox = clickedCmObject.find(Selector.completioncheckbox);
+                    if (checkBox.length !== 0) {
+                        templateData.completionstate = clickedCmObject.hasClass(CLASS.COMPLETION_AUTO)
+                            ? 1 : parseInt(checkBox.attr('data-completionstate'));
                         templateData.completionInUseForCm = 1;
-                        templateData.completionstate = 1 - inverseCompletionState;
-                        templateData.completionstateInverse = inverseCompletionState;
-                        templateData.completionIsManual = clickedCmObject
-                            .find(Selector.toggleCompletion).attr("data-ismanual");
-                        templateData.completionicon = inverseCompletionState === 1 ? 'n' : 'y';
-                    } else {
-                        templateData.completionInUseForCm = 0;
+                        templateData.completionicon = templateData.completionstate === 1 ? 'y' : 'n';
+                        templateData.completionstateInverse = 1 - templateData.completionstate;
+                        templateData.completionIsManual = clickedCmObject.hasClass(CLASS.COMPLETION_MANUAL);
+                        templateData.completionstring = checkBox.attr('title');
+                        // Trigger event to check if other items in course have updated availability.
+                        require(["format_tiles/completion"], function (completion) {
+                            completion.triggerCompletionChangedEvent(sectionNum);
+                        });
                     }
                     modal.setBody(templateData.content);
                     Templates.render("format_tiles/embed_module_modal_header_btns", templateData).done(function (html) {
@@ -391,7 +437,11 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                         modalRoot.find(Selector.closeBtn).detach().appendTo(modalRoot.find(Selector.embedModuleButtons));
                     }).fail(Notification.exception);
 
-                    resizeModal(modalRoot);
+                    // Allow a short delay before we resize the modal, and check a few times, as content may be loading.
+                    setTimeout(() => {
+                        modalHeightChangeWatcher(modalRoot, 3, 1000);
+                    }, 500);
+
 
                     return true;
                 }).fail(function(ex) {
@@ -499,6 +549,14 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
                                     cmid: clickedCmObject.attr("data-cmid")
                                 }
                                 }])[0].fail(Notification.exception);
+                        }
+                        // If we have an auto completion toggle on this item, trigger event.
+                        if (clickedCmObject.find(Selector.completionAuto).length !== 0) {
+                            require(["format_tiles/completion"], function (completion) {
+                                completion.triggerCompletionChangedEvent(
+                                    clickedCmObject.closest(Selector.sectionMain).attr('data-section')
+                                );
+                            });
                         }
                     });
 

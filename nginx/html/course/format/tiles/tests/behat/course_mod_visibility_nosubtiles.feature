@@ -33,8 +33,7 @@ Feature: In a section for Teacher, hidden activities are dimmed
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
+
     And format_tiles subtiles are off for course "Course Mod Vis NoSubtiles Course"
 
   @javascript
@@ -72,7 +71,7 @@ Feature: In a section for Teacher, hidden activities are dimmed
     And I log out tiles
 
   @javascript
-  Scenario: Student can see visible (V) but not visible (NV) activities with subtiles off
+  Scenario: Student can see visible (V) but cannot see invisible (NV) activities with subtiles off
     When I log in as "student1"
     And I am on "Course Mod Vis NoSubtiles Course" course homepage
     And I click on tile "1"

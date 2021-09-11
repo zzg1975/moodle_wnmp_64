@@ -85,7 +85,7 @@ class course_section_manager {
 
     /**
      * Find all courses which have too many sections.
-     * @param $maxsections
+     * @param int $maxsections maximum number of course sections allowed.
      * @return array
      * @throws \dml_exception
      */
@@ -119,7 +119,7 @@ class course_section_manager {
 
     /**
      * Schedule a task to delete all empty sections in a course.
-     * @param $courseid
+     * @param int $courseid
      * @throws \coding_exception
      * @throws \dml_exception
      * @throws \moodle_exception
@@ -138,7 +138,7 @@ class course_section_manager {
 
     /**
      * Cancel a previously scheduled task to delete all empty sections in a given course.
-     * @param $courseid
+     * @param int $courseid
      */
     public static function cancel_empty_sec_deletion ($courseid) {
         unset_config('delete_empty_sections_' . $courseid, 'format_tiles');

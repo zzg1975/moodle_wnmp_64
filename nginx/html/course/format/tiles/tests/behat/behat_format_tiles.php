@@ -284,12 +284,8 @@ class behat_format_tiles extends behat_base {
      * @throws Exception
      */
     public function i_click_progress_indicator_for($activitytitle) {
-        $activitytitle = behat_context_helper::escape($activitytitle);
-
-        // Click the button.
-        $xpath = "//li[contains(@class, 'activity') and @data-title="
-            . $activitytitle . "]/descendant::button[@title=\"Click to toggle completion status\"][1]";
-        $this->execute("behat_general::i_click_on", array($xpath, "xpath_element"));
+        $selector = "button[data-action=change-completion-status][data-activityname='{$activitytitle}']";
+        $this->execute("behat_general::i_click_on", [$selector, "css_element"]);
         $this->execute('behat_general::wait_until_the_page_is_ready');
         $this->wait_for_pending_js();  // Important to wait for pending JS here so as await AJAX response.
     }

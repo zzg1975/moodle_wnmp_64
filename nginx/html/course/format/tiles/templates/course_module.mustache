@@ -100,7 +100,7 @@
         <li class="subtile spacer" aria-hidden="true"></li>
     {{/isediting}}
 {{/hasSpacersBefore}}
-<li class="activity{{#useSubtiles}}{{^is_label}} subtile{{/is_label}}{{/useSubtiles}} {{#is_label}}fullwidth{{/is_label}} {{modname}} modtype_{{modname}} {{modResourceType}}{{^clickable}} unclickable {{/clickable}} launch-tiles-{{launchtype}} {{extraclasses}}"
+<li class="activity{{#useSubtiles}}{{^is_label}} subtile{{/is_label}}{{/useSubtiles}} {{#is_label}}fullwidth{{/is_label}} {{modname}} modtype_{{modname}} {{modResourceType}}{{^clickable}} unclickable {{/clickable}} launch-tiles-{{launchtype}} position-relative {{extraclasses}}"
     id="module-{{cmid}}" data-modtype="{{modname}}{{#modResourceType}}_{{{modResourceType}}}{{/modResourceType}}"
     tabindex="3"
     data-cmid="{{cmid}}"
@@ -215,6 +215,11 @@
                     {{{cmmove}}}
                 </span>
             {{/isediting}}
+            {{^useSubtiles}}
+                {{#activityinformation}}
+                    {{>format_tiles/activity_info}}
+                {{/activityinformation}}
+            {{/useSubtiles}}
         </div>
     </div>
 
@@ -223,22 +228,9 @@
              {{{cmeditmenu}}}
          {{/isediting}}
         {{#completionInUseForCm}}
-        {{! completion is enabled for this course module}}
-        {{! we only want to display a completion icon if we are using subtiles but this item is not a label,}}
-        {{! or we are not using sub tiles.  This is because in subtiles format, labels are only}}
-        {{! used to divide activity sub tiles }}
-            {{#useSubtiles}}
-                {{^is_label}}
-                    {{#completionenabled}}
-                        {{>format_tiles/completion_icon}}
-                    {{/completionenabled}}
-                {{/is_label}}
-            {{/useSubtiles}}
-            {{^useSubtiles}}
-                {{#completionenabled}}
-                    {{>format_tiles/completion_icon}}
-                {{/completionenabled}}
-            {{/useSubtiles}}
+            {{#completionenabled}}
+                {{>format_tiles/completion_icon}}
+            {{/completionenabled}}
         {{/completionInUseForCm}}
     </span>
     {{^useSubtiles}}

@@ -33,10 +33,7 @@ Feature: Teacher can allocate photos to tiles
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
       | allowphototiles        | 1        | format_tiles |
-
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
 
   # TODO this is monolithic and needs refactoring into smaller scenarios.
 

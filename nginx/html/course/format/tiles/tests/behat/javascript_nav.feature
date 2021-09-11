@@ -29,8 +29,6 @@ Feature: Interface can be enhabced with JS nav if allowed by site admin
       | assumedatastoreconsent | 1        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
 
   @javascript
   Scenario: Open section 1 then close and open section 2 with JS as student

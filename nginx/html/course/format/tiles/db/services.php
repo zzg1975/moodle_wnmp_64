@@ -106,4 +106,14 @@ $functions = array (
         'loginrequired' => true,
         'capabilities' => '' // Enrolment check, not capability - see externallib.php.
     ),
+    // To enable us to use this core service even in Moodle 3.10 or lower, we add it here and rebrand it as format_tiles.
+    // This is not necessary in Moodle 3.11 or higher (as they allow access to it from ajax as core_completion_update.. anyway).
+    'format_tiles_update_activity_completion_status_manually' => array(
+        'classname' => 'core_completion_external',
+        'methodname' => 'update_activity_completion_status_manually',
+        'description' => 'Update completion status for the current user in an activity, only for activities with manual tracking.',
+        'type' => 'write',
+        'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        'ajax' => true,
+    ),
 );

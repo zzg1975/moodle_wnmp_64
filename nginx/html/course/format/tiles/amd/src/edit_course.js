@@ -94,17 +94,13 @@ define(
             init: function(
                 courseIdInit,
                 useJavascriptNav, // Set by site admin see settings.php.
-                maxContentSectionsToStore, // Set by site admin see settings.php.
                 isMobile,
                 sectionNum,
-                storedContentExpirySecs, // Set by site admin see settings.php.
-                storedContentDeleteMins, // Set by site admin see settings.php.
                 useFilterButtons,
                 assumeDataStoreConsent, // Set by site admin see settings.php.
                 reopenLastSection, // Set by site admin see settings.php.
                 userId,
                 fitTilesToWidth,
-                usingh5pfilter,
                 enablecompletion,
                 pageType,
                 allowPhotoTiles,
@@ -112,7 +108,6 @@ define(
                 areConvertingLabel,
                 documentationurl
             ) {
-
                 courseId = courseIdInit;
                 // Some args are strings or ints but we prefer bool.  Change to bool now as they are passed on elsewhere.
                 assumeDataStoreConsent = assumeDataStoreConsent === "1";
@@ -147,8 +142,6 @@ define(
                         browserStorageEdit.init(
                             userId,
                             courseId,
-                            maxContentSectionsToStore,
-                            storedContentDeleteMins,
                             assumeDataStoreConsent,
                             finalSectionInCourse,
                             collapsingAllSectionFromURL
@@ -159,7 +152,7 @@ define(
                         // Initialise tooltips shown for example when hover over tile icon "Click to change icon".
                         // But not on mobile as they make clicks harder.
                         var toolTips = $("[data-toggle=tooltip]");
-                        if (toolTips.length !== 0) {
+                        if (toolTips.length !== 0 && typeof toolTips.tooltip == 'function') {
                             try {
                                 toolTips.tooltip();
                             } catch (err) {

@@ -219,53 +219,6 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
     $settingscategory->add($page);
 
-    // Browser Session Storage (storing course content).
-    $page = new admin_settingpage('format_tiles/tab-browserstorage', get_string('browserstorage', 'format_tiles'));
-    $choices = [];
-    for ($x = 0; $x <= 20; $x++) {
-        $choices[$x] = $x;
-    }
-
-    $name = 'format_tiles/assumedatastoreconsent';
-    $title = get_string('assumedatastoreconsent', 'format_tiles');
-    $description = get_string('assumedatastoreconsent_desc', 'format_tiles');
-    $default = 0;
-    $page->add(new admin_setting_configcheckbox($name, $title, $description, $default));
-
-    $setting = new admin_setting_configselect(
-        'format_tiles/jsmaxstoreditems',
-        get_string('jsmaxstoreditems', 'format_tiles'),
-        get_string('jsmaxstoreditems_desc', 'format_tiles'),
-        0,
-        $choices);
-    $page->add($setting);
-
-    $choices = [];
-    for ($x = 30; $x <= 300; $x += 30) {
-        $choices[$x] = $x;
-    }
-    $setting = new admin_setting_configselect(
-        'format_tiles/jsstoredcontentexpirysecs',
-        get_string('jsstoredcontentexpirysecs', 'format_tiles'),
-        get_string('jsstoredcontentexpirysecs_desc', 'format_tiles'),
-        120,
-        $choices);
-    $page->add($setting);
-
-    $choices = [];
-    for ($x = 2; $x <= 30; $x += 2) {
-        $choices[$x] = $x;
-    }
-    $setting = new admin_setting_configselect(
-        'format_tiles/jsstoredcontentdeletemins',
-        get_string('jsstoredcontentdeletemins', 'format_tiles'),
-        get_string('jsstoredcontentdeletemins_desc', 'format_tiles'),
-        10,
-        $choices);
-    $page->add($setting);
-
-    $settingscategory->add($page);
-
     // Javascript navigation settings.
     $page = new admin_settingpage('format_tiles/tab-jsnav', get_string('jsnavsettings', 'format_tiles'));
 
@@ -288,8 +241,7 @@ if ($ADMIN->fulltree) {
     $page->add(new admin_setting_configcheckbox($name, $title, $description, $default));
 
     $name = 'format_tiles/fittilestowidth';
-    $title = get_string('fittilestowidth', 'format_tiles')
-        . ' ' . get_string('experimentalsetting', 'format_tiles');
+    $title = get_string('fittilestowidth', 'format_tiles');
     $description = get_string('fittilestowidth_desc', 'format_tiles');
     $default = 1;
     $page->add(new admin_setting_configcheckbox($name, $title, $description, $default));
@@ -352,7 +304,7 @@ if ($ADMIN->fulltree) {
         'format_tiles/documentationurl',
         get_string('documentationurl', 'format_tiles'),
         get_string('documentationurl_descr', 'format_tiles'),
-        'http://evolutioncode.uk/tiles',
+        'https://evolutioncode.uk/tiles/docs',
         PARAM_RAW,
         50
     );
@@ -365,6 +317,18 @@ if ($ADMIN->fulltree) {
     $default = '';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $page->add($setting);
+
+    $name = 'format_tiles/enablelinebreakfilter';
+    $title = get_string('enablelinebreakfilter', 'format_tiles');
+    $description = get_string('enablelinebreakfilter_desc', 'format_tiles', '<code>&amp;#8288;</code>');
+    $default = 0;
+    $page->add(new admin_setting_configcheckbox($name, $title, $description, $default));
+
+    $name = 'format_tiles/assumedatastoreconsent';
+    $title = get_string('assumedatastoreconsent', 'format_tiles');
+    $description = get_string('assumedatastoreconsent_desc', 'format_tiles');
+    $default = 0;
+    $page->add(new admin_setting_configcheckbox($name, $title, $description, $default));
 
     $settingscategory->add($page);
 

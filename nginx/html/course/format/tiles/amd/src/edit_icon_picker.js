@@ -331,7 +331,10 @@ define(["jquery", "core/templates", "core/ajax", "core/str", "core/notification"
                                     }
                                 });
                                 try {
-                                    $(".pickericon").tooltip();
+                                    const pickerIcon = $(".pickericon");
+                                    if (typeof pickerIcon.tooltip == 'function') {
+                                        pickerIcon.tooltip();
+                                    }
                                 } catch (err) {
                                     require(["core/log"], function (log) {
                                         log.debug(err);

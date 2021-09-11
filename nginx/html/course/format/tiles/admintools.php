@@ -95,6 +95,15 @@ function permitted_colours() {
     return $permittedcolours;
 }
 
+/**
+ * Function to allow site admin to reset course colours to allowed settings from Site Admin > Plugins page.
+ * @param moodle_url $settingsurl
+ * @param moodle_url $pageurl
+ * @return string
+ * @throws coding_exception
+ * @throws dml_exception
+ * @throws moodle_exception
+ */
 function reset_colours($settingsurl, $pageurl) {
     global $DB;
     require_sesskey();
@@ -155,6 +164,12 @@ function reset_colours($settingsurl, $pageurl) {
     return '';
 }
 
+/**
+ * Allow site admin to schedule a deletion of empty sections from courses (from admintools.php).
+ * @throws coding_exception
+ * @throws dml_exception
+ * @throws moodle_exception
+ */
 function schedule_delete_empty_sections() {
     require_sesskey();
     $courseid = required_param('courseid', PARAM_INT);
@@ -168,6 +183,12 @@ function schedule_delete_empty_sections() {
     );
 }
 
+/**
+ * Allow site admin to cancel scheduled deletion
+ * @see schedule_delete_empty_sections()
+ * @throws coding_exception
+ * @throws moodle_exception
+ */
 function cancel_delete_empty_sections() {
     $courseid = required_param('courseid', PARAM_INT);
     format_tiles\course_section_manager::cancel_empty_sec_deletion($courseid);
@@ -179,6 +200,13 @@ function cancel_delete_empty_sections() {
     );
 }
 
+/**
+ * Get a HTML table of problem courses (too many / badly numbered sections) for display to admin.
+ * @return string
+ * @throws coding_exception
+ * @throws dml_exception
+ * @throws moodle_exception
+ */
 function list_problem_courses() {
     $maxsections = \format_tiles\course_section_manager::get_max_sections();
 
@@ -243,6 +271,11 @@ function list_problem_courses() {
     return $o;
 }
 
+/**
+ * Allow site admin to fix a section with mis-numbering.
+ * @throws coding_exception
+ * @throws moodle_exception
+ */
 function resolve_section_misnumbering() {
     $courseid = required_param('courseid', PARAM_INT);
     require_sesskey();

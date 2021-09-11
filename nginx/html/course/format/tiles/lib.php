@@ -45,11 +45,10 @@ class format_tiles extends format_base {
     /**
      *  We want to treat label and plugins that behave like labels as labels.
      * E.g. we don't render them as subtiles but show their content directly on page.
-     * And we don't count them for completiontracking.
      * This includes plugins like mod_customlabel and mod_unilabel, as defined here.
      * @var []
      */
-    public $labellikecoursemods = ['label', 'customlabel', 'unilabel'];
+    public $labellikecoursemods = ['label', 'customlabel', 'unilabel', 'datalynxcoursepage'];
 
     /**
      * Creates a new instance of class
@@ -408,6 +407,10 @@ class format_tiles extends format_base {
                     'default' => 0,
                     'type' => PARAM_INT,
                 ),
+                'usesubtilesseczero' => array(
+                    'default' => 0,
+                    'type' => PARAM_INT
+                ),
                 'courseshowtileprogress' => array(
                     'default' => 0,
                     'type' => PARAM_INT,
@@ -415,10 +418,6 @@ class format_tiles extends format_base {
                 'displayfilterbar' => array(
                     'default' => 0,
                     'type' => PARAM_INT,
-                ),
-                'usesubtilesseczero' => array(
-                    'default' => 0,
-                    'type' => PARAM_INT
                 ),
                 'courseusebarforheadings' => array(
                     'default' => 1,

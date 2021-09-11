@@ -335,8 +335,9 @@ class format_tiles_external extends external_api
         $renderer = $PAGE->get_renderer('format_tiles');
         $templateable = new \format_tiles\output\course_output($course, true, $params['sectionid']);
         $data = $templateable->export_for_template($renderer);
+        $template = $params['sectionid'] == 0 ? 'format_tiles/section_zero' : 'format_tiles/single_section';
         $result = array(
-            'html' => $renderer->render_from_template('format_tiles/single_section', $data)
+            'html' => $renderer->render_from_template($template, $data)
         );
         // This session var is used later, when user revisits main course page, or a single section, for a course using this format.
         // If set to true, the page can safely be rendered from PHP in the javascript friendly format.
@@ -405,7 +406,7 @@ class format_tiles_external extends external_api
         $result = array('status' => false, 'warnings' => [], 'html' => '');
         $mod = get_fast_modinfo($params['courseid'])->get_cm($params['cmid']);
         require_capability('mod/' . $mod->modname . ':view', $modcontext);
-        if ($mod && $mod->available) {
+        if ($mod && $mod->uservisible) {
             if (array_search($mod->modname, explode(",", get_config('format_tiles', 'modalmodules'))) === false) {
                 throw new invalid_parameter_exception('Not allowed to call this mod type - disabled by site admin');
             }
@@ -806,6 +807,7 @@ class format_tiles_external extends external_api
         $renderer = $PAGE->get_renderer('format_tiles');
         $templateable = new \format_tiles\output\course_output($course, true);
         $showprogressaspercent = $templateable->courseformatoptions['courseshowtileprogress'] == 2;
+        $overall = ['complete' => 0, 'outof' => 0];
         // First add the info about the section and its availability.
         foreach ($sectionnums as $sectionnum) {
             if (isset($sectioninfo[$sectionnum]) && ($sectioninfo[$sectionnum]->visible || $canviewhidden)) {
@@ -850,10 +852,13 @@ class format_tiles_external extends external_api
                     // Add percent, percentcircumf, percentoffset, issingledigit.
                     $sections[$section['sectionnum']][strtolower($k)] = $v;
                 }
+                $overall['complete'] += $completionthistile['completed'];
+                $overall['outof'] += $completionthistile['outof'];
             }
         }
         return array(
             'sections' => array_values($sections),
+            'overall' => $overall,
             'status' => true,
             'warnings' => $warnings
         );
@@ -902,14 +907,24 @@ class format_tiles_external extends external_api
                                 PARAM_INT,
                                 'Number of possible activities in this section for this user'
                             ),
-                            'percent' => new external_value(PARAM_INT, 'Percent complete'),
-                            'percentcircumf' => new external_value(PARAM_FLOAT, 'Circumference of radial indicator'),
-                            'percentoffset' => new external_value(PARAM_INT, 'Percent offset for radial indicator'),
-                            'iscomplete' => new external_value(PARAM_BOOL, 'Is the section complete'),
+                            'percent' => new external_value(PARAM_INT, 'Percent complete', VALUE_OPTIONAL, 0),
+                            'percentcircumf' => new external_value(
+                                PARAM_FLOAT, 'Circumference of radial indicator', VALUE_OPTIONAL, 0
+                            ),
+                            'percentoffset' => new external_value(
+                                PARAM_INT, 'Percent offset for radial indicator'. VALUE_OPTIONAL, 0
+                            ),
+                            'iscomplete' => new external_value(PARAM_BOOL, 'Is the section complete'. VALUE_OPTIONAL, false),
                             'isavailable' => new external_value(PARAM_BOOL, 'Is the section available (not restricted)'),
                             'isclickable' => new external_value(PARAM_BOOL, 'Is the section clickable / expandable'),
                             'availabilitymessage' => new external_value(PARAM_RAW, 'If the section is restricted, explains why')
                         )
+                    )
+                ),
+                'overall' => new external_single_structure(
+                    array(
+                        'complete' => new external_value(PARAM_INT, 'How many activities complete overall'),
+                        'outof' => new external_value(PARAM_INT, 'How many activities out of overall'),
                     )
                 ),
                 'status' => new external_value(PARAM_BOOL, 'status: true if success'),

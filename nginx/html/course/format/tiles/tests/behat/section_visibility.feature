@@ -26,7 +26,7 @@ Feature: Show/hide course sections in format_tiles
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
+
     And the following "activities" exist:
       | activity | name               | intro | course | idnumber  | section | visible |
       | forum    | Test visible forum 2 | intro | C1     | forrumvis | 2       | 1       |

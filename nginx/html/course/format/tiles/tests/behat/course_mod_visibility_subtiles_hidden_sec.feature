@@ -33,8 +33,6 @@ Feature: Teacher can hide course modules when subtiles being used and this is re
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
 
     And format_tiles subtiles are on for course "Course Mod Vis Course3"
     And I log in as "teacher1"

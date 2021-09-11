@@ -25,9 +25,8 @@ Feature: Teacher can add a page to a course and open it with subtiles off
       | assumedatastoreconsent | 1        | format_tiles |
       | reopenlastsection      | 0        | format_tiles |
       | usejavascriptnav       | 1        | format_tiles |
-      | jsmaxstoreditems       | 0        | format_tiles |
+
     And I log in as "teacher1"
-    # We set jsmaxstoreditems to zero as otherwise when we switch between subtiles and tiles format we may not see an immediate change in display
 
   @javascript
   Scenario: Create and open new page using modal as teacher - subtiles off
