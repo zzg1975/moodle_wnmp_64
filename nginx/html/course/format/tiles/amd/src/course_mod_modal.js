@@ -78,7 +78,7 @@ define(["jquery", "core/modal_factory", "core/config", "core/templates", "core/n
         };
 
         var modalMinWidth = function () {
-            return Math.min(win.width(), 1000);
+            return Math.min(win.width(), 1100);
         };
 
         /**

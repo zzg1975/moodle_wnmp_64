@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['markasdoneselected'] = '标记为完成（100%）';
 $string['next'] = '下一步';
 $string['notsubmittedyet'] = '还未提交';
 $string['previous'] = '上一步';

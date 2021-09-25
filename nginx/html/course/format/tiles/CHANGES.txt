@@ -302,3 +302,8 @@ Other
 ======================
 - Fix issue with completion hiding sec zero content
 - Fix issue #82 special chars in mod title
+
+3.11.1.3 (2020080629)
+======================
+- Fix JS error on course edit form
+- Minor style/layout adjustments for modals, stealth activities and Lambda theme

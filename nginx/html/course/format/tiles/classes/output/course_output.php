@@ -899,13 +899,13 @@ class course_output implements \renderable, \templatable
         if ($this->canviewhidden) {
             $moduleobject['uservisible'] = true;
             $moduleobject['clickable'] = true;
-        } else if (!$mod->uservisible && $mod->visibleoncoursepage && $mod->availableinfo && $mod->visible) {
+        } else if (!$mod->uservisible && $mod->is_visible_on_course_page() && $mod->availableinfo && $mod->visible) {
             // Activity is not available, not hidden from course page and has availability info.
             // So it is actually visible on the course page (with availability info and without a link).
             $moduleobject['uservisible'] = true;
             $moduleobject['clickable'] = false;
         } else {
-            $moduleobject['uservisible'] = $mod->uservisible;
+            $moduleobject['uservisible'] = $mod->is_visible_on_course_page();
             $moduleobject['clickable'] = $mod->uservisible;
         }
         // From Moodle 3.11 onwards, we may have extra completion conditions info to display under activities.

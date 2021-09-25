@@ -79,10 +79,6 @@
     text-decoration: none;
     padding: 7px 10px 5px 10px;
 }
-.format-tiles .tile a .availabilityinfo,
-.format-tiles .availabilityinfo .badge {
-    color: #fff;
-}
 .format-tiles .progress-indic {
     display: inline-block;
     color: #999;
@@ -934,9 +930,6 @@ body.format-tiles.jsenabled .course-content .headerabovetiles {
     /* stylelint-disable-next-line declaration-no-important */
     opacity: 1 !important;
 }
-.format-tiles .availabilityinfo.isstealth .badge {
-    font-size: 0.6em;
-}
 .format-tiles .hidden #hiddeneye {
     background-image: url([[pix:format_tiles|eye-slash]]);
     margin-left: 10px;
@@ -1553,12 +1546,10 @@ allow tiles to be taller and thinner so can fit two side by side in portrait on 
 .format-tiles .embed_cm_modal .embed_file_button.button_download {
     position: absolute;
     right: 70px;
-    padding-top: 5px;
 }
 .format-tiles .embed_cm_modal .embed_file_button.button_expand {
     position: absolute;
     right: 105px;
-    padding-top: 5px;
 }
 .format-tiles .modal-container .modal .modal-header button.close {
     font-size: 1.8em;
@@ -1575,15 +1566,18 @@ allow tiles to be taller and thinner so can fit two side by side in portrait on 
 .format-tiles .embed-module-buttons {
     min-width: 125px;
     text-align: right;
-    top: 0;
-    position: relative;
-    right: 0;
+    top: 5px;
+    position: absolute;
+    right: 5px;
     vertical-align: top;
 }
 .format-tiles .embed-module-buttons button.close {
     width: 28px;
     height: 28px;
     float: none;
+    position: absolute;
+    top: 3px;
+    right: 5px;
 }
 .format-tiles .embed-module-buttons .completion-icon {
     opacity: 1;
@@ -1685,7 +1679,6 @@ allow tiles to be taller and thinner so can fit two side by side in portrait on 
     position: absolute;
     bottom: 5px;
     left: 0;
-    font-size: 0.8em;
 }
 .format-tiles li.tile .availabilityinfo {
     line-height: 15px;
@@ -1716,6 +1709,7 @@ allow tiles to be taller and thinner so can fit two side by side in portrait on 
 }
 .format-tiles .course-content ul.section.nosubtiles .actions {
     margin-top: 0.5em;
+    min-width: 30px;
 }
 .format-tiles #selectedicon .icon,
 #page-course-edit.format-site #selectedicon .icon {
@@ -1749,6 +1743,10 @@ allow tiles to be taller and thinner so can fit two side by side in portrait on 
     margin-left: 30px;
 }
 
+/*Lambda theme*/
+.format-tiles .activity-information {
+    float: none;
+}
 .format-tiles .margin-rt .section-cm-edit-actions {
     margin-right: 35px;
 }

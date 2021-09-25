@@ -204,8 +204,10 @@
                 <div class="contentafterlink">
                     {{#availabilitymessage}}
                         {{#stealth}}{{{availabilitymessage}}}{{/stealth}}
-                        {{^useSubtiles}}{{{availabilitymessage}}}{{/useSubtiles}}
-                        {{^stealth}}{{#useSubtiles}}{{>format_tiles/availability_info}}{{/useSubtiles}}{{/stealth}}
+                        {{^stealth}}
+                            {{#useSubtiles}}{{>format_tiles/availability_info}}{{/useSubtiles}}
+                            {{^useSubtiles}}{{{availabilitymessage}}}{{/useSubtiles}}
+                        {{/stealth}}
                     {{/availabilitymessage}}
                 </div>
             {{/is_label}}

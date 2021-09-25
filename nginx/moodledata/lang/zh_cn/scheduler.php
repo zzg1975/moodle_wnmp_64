@@ -413,7 +413,6 @@ $string['studentbreakdown'] = '被学生';
 $string['studentcomments'] = '学生注释';
 $string['studentdetails'] = '学生细节';
 $string['studentmultiselect'] = '在这个空位中，每个学生只能被选择一次';
-$string['studentnotes'] = '您对预约会面的注释';
 $string['students'] = '学生';
 $string['sunday'] = '星期日';
 $string['tab-otherappointments'] = '此学生的全部预约会面';

@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['actions'] = '设置';
 $string['additionallicenseinfo'] = '关于许可证的任何附加信息';
+$string['atto_h5p'] = '插入H5P按钮';
 $string['author'] = '作者';
 $string['authorcomments'] = '作者评论';
 $string['authorcommentsdescription'] = '内容编辑者的评论。(此文本将不作为版权信息的一部分发布。)';
