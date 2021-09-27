@@ -84,7 +84,6 @@ $string['badrandomintarg'] = 'JSON @randomint 函数的参数错误';
 $string['badrandompickarg'] = 'JSON @randompic 函数的参数错误';
 $string['badsandboxparams'] = '\'其他\'字段（沙盒参数）必须为空白或有效的JSON记录';
 $string['badtemplateparams'] = '模板参数必须为空或有效的JSON记录';
-$string['badtemplateparamsaftertwig'] = '模板参数在TWIG中生成了无效的JSON：<pre>{$a}</pre>';
 $string['brokencombinator'] = '期望{$a->numtests}测试结果，得到{$a->numresults}。可能是输出过多或题目本身有错误？';
 $string['brokentemplategrader'] = '来自打分器的错误输出：{$a->output}。程序执行可能已中止（例如超时或超出内存限制）。';
 $string['bulkquestiontester'] = '<a href="{$a->link}">批测试脚本</a>测试当前上下文中所有问题的示例答案是否正确打分。只有在添加了一些带有示例答案的问题时才有用；初始安装时没有。';

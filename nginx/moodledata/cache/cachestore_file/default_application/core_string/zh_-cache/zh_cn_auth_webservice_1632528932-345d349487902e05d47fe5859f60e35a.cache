@@ -1,1 +1,0 @@
-a:3:{s:26:"auth_webservicedescription";s:87:"此身份认证方法用于那些只允许通过网络服务客户端访问的账号。";s:10:"pluginname";s:24:"网络服务身份认证";s:16:"privacy:metadata";s:54:"网络服务认证插件不储存任何私人数据。";}
