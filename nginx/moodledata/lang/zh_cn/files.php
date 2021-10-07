@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['privacy:metadata:core_userkey'] = '生成并存储私有令牌。 此令牌可用于访问 Moodle 文件，而无需您登录。';
 $string['privacy:metadata:files'] = '用户上传或共享文件的记录';
 $string['privacy:metadata:files:author'] = '文件内容的作者';
 $string['privacy:metadata:files:contenthash'] = '文件内容的校验值';
