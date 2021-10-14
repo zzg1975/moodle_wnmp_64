@@ -1,0 +1,3 @@
+a:12:{s:15:"audioextensions";s:14:"音频： {$a}";s:12:"defaultwidth";s:12:"默认宽度";s:16:"defaultwidthdesc";s:96:"媒体播放器宽度，如果未指定宽度且播放器无法确定实际媒体文件宽度。";s:13:"defaultheight";s:12:"默认高度";s:17:"defaultheightdesc";s:99:"如果未指定高度且播放器无法确定实际媒体文件高度，则媒体播放器高度。";s:10:"extensions";s:16:"扩展名：{$a}";s:18:"managemediaplayers";s:21:"管理媒体播放器";s:12:"mediaformats";s:18:"可用的播放器";s:17:"mediaformats_desc";s:472:"启用播放器后，可能通过多媒体过滤器（如果有启用的话）、文件管理器或URL来使用Embed标签嵌入文件。若关闭了播放器，则不会嵌入这些格式。用户可以手动下载访问这些资源。
+
+如果同时有两个播放支持同一种文件格式，启用两个播放器有助于提高在各种设备如手机上的兼容性。当然也可以通过给同一个音视频提供不同格式的文件来进一步提高兼容性。";s:16:"privacy:metadata";s:42:"媒体嵌入不存储任何个人数据。";s:8:"supports";s:6:"支持";s:15:"videoextensions";s:13:"视频：{$a}";}

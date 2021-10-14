@@ -1,0 +1,1 @@
+a:6:{s:15:"category:config";s:24:"配置分类选课实例";s:21:"category:synchronised";s:27:"角色分配与选课同步";s:21:"enrolcategorysynctask";s:24:"分类选课同步任务";s:10:"pluginname";s:12:"分类选课";s:15:"pluginname_desc";s:138:"分类选课插件是旧版本使用的基于角色分配的课程分类级的选课解决方案。建议使用群同步插件代替它。";s:16:"privacy:metadata";s:51:"分类选课插件不会存储任何个人数据。";}

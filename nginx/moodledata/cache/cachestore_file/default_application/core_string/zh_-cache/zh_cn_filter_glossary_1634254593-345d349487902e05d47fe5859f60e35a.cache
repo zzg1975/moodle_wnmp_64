@@ -1,0 +1,1 @@
+a:4:{s:16:"glossarycategory";s:37:"{$a->glossary}：类别{$a->Category}";s:15:"glossaryconcept";s:28:"{$a->glossary}:{$a->concept}";s:10:"filtername";s:21:"自动词汇表链接";s:16:"privacy:metadata";s:57:"术语表自动链接插件不存储任何个人数据。";}

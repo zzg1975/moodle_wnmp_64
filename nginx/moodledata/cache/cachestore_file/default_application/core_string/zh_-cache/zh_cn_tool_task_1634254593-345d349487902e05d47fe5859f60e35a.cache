@@ -1,0 +1,30 @@
+a:62:{s:5:"adhoc";s:6:"Ad hoc";s:11:"adhoctaskid";s:20:"Ad hoc task ID: {$a}";s:10:"adhoctasks";s:12:"Ad hoc tasks";s:4:"asap";s:6:"尽快";s:10:"adhocempty";s:26:"Ad hoc task queue is empty";s:14:"adhocqueuesize";s:32:"Ad hoc task queue has {$a} tasks";s:13:"adhocqueueold";s:53:"Oldest task is {$a->age} which is more than {$a->max}";s:20:"backtoscheduledtasks";s:23:"Back to scheduled tasks";s:8:"blocking";s:6:"封锁";s:25:"cannotfindthepathtothecli";s:155:"Cannot find the path to the PHP CLI executable so task execution aborted. Set the 'Path to PHP CLI' setting in Site administration / Server / System paths.";s:15:"checkadhocqueue";s:17:"Ad hoc task queue";s:16:"checkcronrunning";s:12:"Cron running";s:17:"checkmaxfaildelay";s:20:"Tasks max fail delay";s:9:"classname";s:10:"Class name";s:22:"clearfaildelay_confirm";s:140:"Are you sure you want to clear the fail delay for task '{$a}'? After clearing the delay, the task will run according to its normal schedule.";s:9:"component";s:6:"组件";s:13:"corecomponent";s:6:"核心";s:12:"crondisabled";s:111:"Cron is disabled. No new tasks will be started. The system will not operate properly until it is enabled again.";s:6:"cronok";s:26:"Cron is running frequently";s:7:"default";s:6:"默认";s:8:"defaultx";s:13:"Default: {$a}";s:8:"disabled";s:6:"关闭";s:13:"disabled_help";s:88:"Cron不会执行被关闭的工作安排，但它们仍然可由CLI工具手动执行。";s:16:"edittaskschedule";s:25:"编辑计划任务：{$a}";s:12:"enablerunnow";s:39:"允许“现在运行”预定的任务";s:17:"enablerunnow_desc";s:213:"允许管理员立即运行一个单独的预定任务，而不是等待它按照计划运行。该任务在web服务器上运行，因此一些站点可能希望禁用该特性，以避免潜在的性能问题。";s:9:"faildelay";s:12:"故障延迟";s:13:"fromcomponent";s:20:"From component: {$a}";s:8:"hostname";s:9:"Host name";s:11:"lastruntime";s:12:"最后运行";s:11:"lastupdated";s:18:"Last updated {$a}.";s:11:"nextruntime";s:12:"下次运行";s:3:"pid";s:3:"PID";s:14:"plugindisabled";s:15:"插件已关闭";s:10:"pluginname";s:18:"计划任务设置";s:19:"resettasktodefaults";s:30:"恢复计划任务为默认值";s:24:"resettasktodefaults_help";s:81:"将会放弃任何本地所做的修改，并将此工作恢复到原始设置。";s:12:"runningtasks";s:17:"Tasks running now";s:6:"runnow";s:7:"Run now";s:8:"runagain";s:9:"Run again";s:14:"runnow_confirm";s:122:"Are you sure you want to run this task '{$a}' now? The task will run on the web server and may take some time to complete.";s:10:"runpattern";s:11:"Run pattern";s:9:"scheduled";s:9:"Scheduled";s:14:"scheduledtasks";s:12:"计划任务";s:28:"scheduledtaskchangesdisabled";s:48:"在Moodle配置中已经禁止修改计划任务";s:7:"started";s:7:"Started";s:12:"taskdisabled";s:21:"计划任务已关闭";s:12:"taskfailures";s:20:"{$a} task(s) failing";s:8:"tasklogs";s:9:"Task logs";s:14:"tasknofailures";s:26:"There are no tasks failing";s:15:"taskscheduleday";s:3:"日";s:20:"taskscheduleday_help";s:291:"任务调度的"日"字段。这一字段必须使用与 unix cron 相同的格式。例如:<br/>
+<ul><li><strong>*</strong>每一天</li>
+<li><strong>*/2</strong> 每隔2天</li>
+<li><strong>1</strong>每个月的第1天</li>
+<li><strong>1,15</strong> 每个月的第1和第15天</li>
+</ul>";s:21:"taskscheduledayofweek";s:9:"星期几";s:26:"taskscheduledayofweek_help";s:293:"任务高度的"星期几"字段。这一字段必须使用与 unix cron相同的格式。例如:<br/>
+<ul>
+<li><strong>*</strong> 一周每天</li>
+<li><strong>0</strong> 每个星期日</li>
+<li><strong>6</strong> 每个星期六</li>
+<li><strong>1,5</strong>每个星期一和五</li>
+</ul>";s:16:"taskschedulehour";s:3:"时";s:21:"taskschedulehour_help";s:304:"任务调度"时"字段。这个字段必须使用与 unix cron 相同的格式。例如:<br/>
+<ul>
+<li><strong>*</strong> 每小时</li>
+<li><strong>*/2</strong> 每2小时</li>
+<li><strong>2-10</strong>从2点到10点的每一小时 (包含)</li>
+<li><strong>2,6,9</strong>2点、6点和9点</li>
+</ul>";s:18:"taskscheduleminute";s:3:"分";s:23:"taskscheduleminute_help";s:332:"任务调度的"分"字段。这个字段必须使用与 unix cron 相同的格式。例如:<br/>
+<ul>
+<li><strong>*</strong> 每一分钟</li>
+<li><strong>*/5</strong> 每隔5分钟</li>
+<li><strong>2-10</strong> 介于2到10(包含)之间的每一分钟</li>
+<li><strong>2,6,9</strong> 整点过后的第2、6和9分钟</li>
+</ul>";s:17:"taskschedulemonth";s:3:"月";s:22:"taskschedulemonth_help";s:281:"任务调度的"月"字段。这个字段必须使用与 unix cron 相同的格式。例如:<br/>
+<ul>
+<li><strong>*</strong> 每一个月</li>
+<li><strong>*/2</strong>每隔2个月</li>
+<li><strong>1</strong>每到一月份</li>
+<li><strong>1,5</strong> 一月和五月</li>
+</ul>";s:16:"privacy:metadata";s:73:"The Scheduled task configuration plugin does not store any personal data.";s:8:"viewlogs";s:18:"View logs for {$a}";}

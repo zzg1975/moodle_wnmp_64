@@ -1,0 +1,8 @@
+a:12:{s:10:"filtername";s:7:"MathJax";s:20:"additionaldelimiters";s:24:"附加方程式分隔符";s:25:"additionaldelimiters_help";s:229:"MathJax筛选器解析包含在分隔符字符中的方程式的文本。
+可在此处添加可识别分隔符的列表（例如，AsciiMath使用`）。
+分隔符可以包含多个字符，多个分隔符可以用逗号分隔。";s:8:"httpsurl";s:11:"MathJax URL";s:13:"httpsurl_help";s:25:"MathJax库的完整URL。";s:22:"texfiltercompatibility";s:21:"TeX滤波器兼容性";s:27:"texfiltercompatibility_help";s:186:"MathJax过滤器可用作TeX符号过滤器的替代品。
+为了支持TeX符号过滤器支持的所有分隔符，MathJax将被配置为显示所有与文本“内联”的方程式。";s:12:"localinstall";s:26:"Local MathJax installation";s:17:"localinstall_help";s:396:"默认的MathJax配置使用MathJax的CDN版本，但是如果需要，可以在本地安装MathJax。
+
+这对于节省带宽或由于本地代理限制而非常有用。
+
+要使用本地安装的MathJax，首先从下载完整的MathJax库https://www.mathjax.org/. 然后将其安装到web服务器上。最后更新MathJax过滤器设置httpurl和/或httpsurl，以指向本地MathJax.js URL。";s:15:"mathjaxsettings";s:13:"MathJAX配置";s:20:"mathjaxsettings_desc";s:144:"默认的MathJax配置应该适合大多数用户，但是MathJax是高度可配置的，可以在这里添加任何标准MathJax配置选项。";s:16:"privacy:metadata";s:43:"MathJax插件不存储任何个人数据。";}
