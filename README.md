@@ -40,7 +40,7 @@
 ## 适用环境
 
 - Windows 7、Windows 10或Windows 2012 Server等之后版本的64位操作系统，同一年代的Windows服务器版本操作系统也能正常运行。
-- 特别注意：如果在windows 7、windows 8等较老的操作系统中，使用记事本编辑了nginx.conf这样的配置文件，以UTF-8编码格式保存后nginx会无法启动，这是因为记事本将nginx.conf的文件格式由原先的（不带BOM头的）UTF-8编码格式保存为了“带有BOM的UTF-8”，即在UTF-8文件最前面加了“EF BB BF”三个字节。采使用UltraEdit超编辑器打开nginx.conf，另存为“不带BOM的UTF-8”文件即可，会自动将文件最开头的“EF BB BF”三个字节去掉，这时，nginx就能正常启动了。另外，windows 10中的记事本，在保存时，已将UTF-8和带BOM的UTF-8编辑格式区分开来了，所以，不会出现这个问题。
+- 特别注意：如果在windows 7、windows 8等较老的操作系统中，使用记事本编辑了nginx.conf这样的配置文件，以UTF-8编码格式保存后nginx会无法启动，这是因为记事本将nginx.conf的文件格式由原先的（不带BOM头的）UTF-8编码格式保存为了“带有BOM的UTF-8”，即在UTF-8文件最前面加了“EF BB BF”三个字节。采使用UltraEdit超编辑器打开nginx.conf，另存为“不带BOM的UTF-8”文件即可，会自动将文件最开头的“EF BB BF”三个字节去掉，这时，nginx就能正常启动了。另外，windows 10中的记事本，在保存时，已将UTF-8和带BOM的UTF-8编辑格式区分开来了，所以，不会出现这个奇怪的问题。
 
 ## 本次重大改进：
 
