@@ -1,5 +1,5 @@
 
-# 闪电Moodle 3.11终结版
+# 闪电Moodle 3.11.4终结版
 
 ## 软件简介
 
@@ -13,12 +13,12 @@
 
 ***LNMP + Moodle架构的样板工程：https://mood.nbpt.edu.cn/***
 
-- 闪电Moodle 3.11.2+终结版
-- Lightning Moodle 3.11.2+ development version.
+- 闪电Moodle 3.11.4终结版
+- Lightning Moodle 3.11.4 development version.
 
 **作者：曾棕根 老师**
 
-- 2021-10-29  于宁波市北仑区
+- 2021-11-11  于宁波市北仑区
 - 邮箱：461932968@qq.com
 - 手机：18757462581
 - Moodle亚洲开发群：QQ群号263569269
@@ -65,7 +65,7 @@
 - 【Nginx版本】1.20.1 stable
 - 【PHP版本】7.3.32 stable【PHP 8.0.10会使H5P互动内容活动无下从H5P hub下载内容类型; PHP 7.4.24会使瓷砖课程格式Tiles Course Format运行错误】
 - 【MariaDB版本】10.4.19 stable【注意：10.5.10版本不能在Windows 7上运行，在 Windows 10上能运行，故没有使用这个版本】
-- 【Moodle 版本】3.11.2+ (Build: 20210827)
+- 【Moodle 版本】3.11.4 (Build: 20211108)
 
 ## 集成的Moodle开发工具
 

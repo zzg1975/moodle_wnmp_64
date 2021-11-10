@@ -1639,21 +1639,8 @@ class grade_structure {
         }
 
         $title = $element['object']->get_name($fulltotal);
-        //$header .= $title;
-        //通过CSS样式控制文字单列显示
-        //本问题由该网友解决并分享：
-        //北京科莱特信息技术有限公司，廖汉真（网名Martin Liao，ＱＱ号84120890），广东河源人，2021年9月27日 
-        global $PAGE;
-        $isreportgrader = strcmp($PAGE->bodyid, 'page-grade-report-grader-index');  // 判断是否为评分人报表
-        if ($isreportgrader===0)
-        { // 如果是，设置标题为竖立显示
-            $header = mb_substr($title,0,10).$header; // 截取成绩项目标题文字长度并组合图标显示
-            $header = '<div style="margin:0 auto;width:18px;line-height:20px;letter-spacing:5px;white-space: normal;word-break:break-all;">'.$header.'</div>'; // 通过样式控制文字显示
-        }
-        else
-        {
-            $header .= $title;  // 如果不是评分人报表，按初始设置
-        }
+        $titleunescaped = $element['object']->get_name($fulltotal, false);
+        $header .= $title;
 
         if ($element['type'] != 'item' and $element['type'] != 'categoryitem' and
             $element['type'] != 'courseitem') {
@@ -1663,12 +1650,12 @@ class grade_structure {
         if ($withlink && $url = $this->get_activity_link($element)) {
             $a = new stdClass();
             $a->name = get_string('modulename', $element['object']->itemmodule);
-            $a->title = $title;
+            $a->title = $titleunescaped;
             $title = get_string('linktoactivity', 'grades', $a);
 
             $header = html_writer::link($url, $header, array('title' => $title, 'class' => 'gradeitemheader'));
         } else {
-            $header = html_writer::span($header, 'gradeitemheader', array('title' => $title, 'tabindex' => '0'));
+            $header = html_writer::span($header, 'gradeitemheader', array('title' => $titleunescaped, 'tabindex' => '0'));
         }
 
         if ($withdescription) {
