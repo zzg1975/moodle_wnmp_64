@@ -1,0 +1,2 @@
+s:369:"<p>一个文本字段，其中包含阻塞url的过滤表达式。可以使用通配符'*'。表达式的例子:'example.com'或'example.com/stuff/*'。“example.com”匹配“example.com”、“www.example.com”和“www.mail.example.com”。'example.com/stuff/*'匹配所有的请求到'example.com'的任何子域，有'stuff'作为路径的第一部分。</p>
+";
