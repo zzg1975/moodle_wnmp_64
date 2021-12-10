@@ -1632,6 +1632,7 @@ $cache = array (
     'core\\output\\icon_system_fontawesome' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/icon_system_fontawesome.php',
     'core\\output\\icon_system_standard' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/icon_system_standard.php',
     'core\\output\\inplace_editable' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/inplace_editable.php',
+    'core\\output\\mustache_clean_string_helper' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/mustache_clean_string_helper.php',
     'core\\output\\mustache_engine' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/mustache_engine.php',
     'core\\output\\mustache_filesystem_loader' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/mustache_filesystem_loader.php',
     'core\\output\\mustache_helper_collection' => 'C:\\moodle_wnmp_64\\nginx\\html/lib/classes/output/mustache_helper_collection.php',
@@ -3724,6 +3725,7 @@ $cache = array (
     'mod_workshop\\event\\assessments_reset' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/assessments_reset.php',
     'mod_workshop\\event\\course_module_instance_list_viewed' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/course_module_instance_list_viewed.php',
     'mod_workshop\\event\\course_module_viewed' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/course_module_viewed.php',
+    'mod_workshop\\event\\phase_automatically_switched' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/phase_automatically_switched.php',
     'mod_workshop\\event\\phase_switched' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/phase_switched.php',
     'mod_workshop\\event\\submission_assessed' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/submission_assessed.php',
     'mod_workshop\\event\\submission_created' => 'C:\\moodle_wnmp_64\\nginx\\html/mod/workshop/classes/event/submission_created.php',
@@ -5510,5 +5512,5 @@ $cache = array (
       ),
     ),
   ),
-  'version' => 2021051704.0,
+  'version' => 2021051704.0899999,
 );

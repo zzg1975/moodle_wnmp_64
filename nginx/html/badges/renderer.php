@@ -24,6 +24,8 @@
  * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 require_once($CFG->libdir . '/badgeslib.php');
 require_once($CFG->libdir . '/tablelib.php');
 
@@ -47,7 +49,14 @@ class core_badges_renderer extends plugin_renderer_base {
                     $bname = s($badge->name);
                 }
                 if (!empty($badge->image)) {
-                    $imageurl = $badge->image;
+                    if (is_object($badge->image)) {
+                        if (!empty($badge->image->caption)) {
+                            $badge->imagecaption = $badge->image->caption;
+                        }
+                        $imageurl = $badge->image->id;
+                    } else {
+                        $imageurl = $badge->image;
+                    }
                 }
                 if (isset($badge->assertion->badge->name)) {
                     $bname = s($badge->assertion->badge->name);
@@ -59,7 +68,8 @@ class core_badges_renderer extends plugin_renderer_base {
 
             $name = html_writer::tag('span', $bname, array('class' => 'badge-name'));
 
-            $image = html_writer::empty_tag('img', ['src' => $imageurl, 'class' => 'badge-image', 'alt' => $badge->imagecaption]);
+            $imagecaption = $badge->imagecaption ?? '';
+            $image = html_writer::empty_tag('img', ['src' => $imageurl, 'class' => 'badge-image', 'alt' => $imagecaption]);
             if (!empty($badge->dateexpire) && $badge->dateexpire < time()) {
                 $image .= $this->output->pix_icon('i/expired',
                         get_string('expireddate', 'badges', userdate($badge->dateexpire)),
@@ -507,7 +517,14 @@ class core_badges_renderer extends plugin_renderer_base {
         if (isset($issued->imageUrl)) {
             $issued->image = $issued->imageUrl;
         }
-        $output .= html_writer::empty_tag('img', array('src' => $issued->image, 'width' => '100'));
+        if (is_object($issued->image)) {
+            if (!empty($issued->image->caption)) {
+                $issued->imagecaption = $issued->image->caption;
+            }
+            $issued->image = $issued->image->id;
+        }
+        $imagecaption = $issued->imagecaption ?? '';
+        $output .= html_writer::empty_tag('img', ['src' => $issued->image, 'width' => '100', 'alt' => $imagecaption]);
         if (isset($assertion->expires)) {
             $expiration = is_numeric($assertion->expires) ? $assertion->expires : strtotime($assertion->expires);
             if ($expiration < $today) {

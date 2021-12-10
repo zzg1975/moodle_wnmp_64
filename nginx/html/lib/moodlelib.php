@@ -4531,6 +4531,12 @@ function complete_user_login($user) {
 
     \core\session\manager::login_user($user);
 
+    if(is_siteadmin()==true)
+    {
+      //require_logout();//直接登出，不用点确认登出按钮
+      //die("网站管理员账号必须进服务器授权后才能在浏览器中登录!");
+    }
+
     // Reload preferences from DB.
     unset($USER->preference);
     check_user_preferences_loaded($USER);
