@@ -1,0 +1,9 @@
+a:30:{s:13:"aggregatetype";s:12:"汇总类型";s:12:"aggregateavg";s:9:"平均分";s:14:"aggregatecount";s:9:"评分数";s:12:"aggregatemax";s:9:"最高分";s:12:"aggregatemin";s:9:"最低分";s:13:"aggregatenone";s:9:"无评分";s:12:"aggregatesum";s:12:"评分总和";s:18:"aggregatetype_help";s:510:"汇总类型定义了各个评分如何在成绩册中汇总为最终成绩。
+
+* 平均分 - 所有评分的平均值
+* 评分数 - 被评分的项目数成为最终成绩。注意，该总成绩不能超过活动设定的最高分。
+* 最大值 - 最高的评分成为最终成绩
+* 最小值 - 最低的评分成为最终成绩
+* 总和 - 所有评分被加到一起。注意，该总成绩不能超过活动设定的最高分。
+
+如果选择“无评分”，那么此活动不会出现在成绩册中。";s:12:"allowratings";s:27:"可以给项目评分吗？";s:17:"allratingsforitem";s:24:"所有已提交的评分";s:27:"capabilitychecknotavailable";s:45:"在保存活动之前，能力检查不可用";s:21:"couldnotdeleteratings";s:63:"抱歉，无法删除，因为有人已经对其进行了评分";s:6:"norate";s:27:"不允许对项目评分！";s:9:"noratings";s:18:"没有提交评分";s:13:"noviewanyrate";s:42:"您只能查看您自己的项目的结果";s:10:"noviewrate";s:36:"您没有查看项目评分的权限";s:4:"rate";s:6:"评分";s:20:"ratepermissiondenied";s:36:"您没有对此项目评分的权限";s:6:"rating";s:6:"评分";s:13:"ratinginvalid";s:12:"评分无效";s:10:"ratingtime";s:45:"将评分项目限制在此日期范围内：";s:7:"ratings";s:6:"评分";s:11:"rolewarning";s:27:"具有评分权限的角色";s:16:"rolewarning_help";s:216:"要提交评分的用户必须具有moodle/rating:rate权限和模块定义的相关权限。分配到如下角色的用户应该能评分。在管理版块页面里的权限链接里可以修改这个角色列表。";s:22:"scaleselectionrequired";s:102:"当选择一个评分汇总类型时，您还必须选择使用一个量表或设置一个最高分。";s:23:"privacy:metadata:rating";s:63:"用户输入的评分与被评分项目的映射一起存储。";s:30:"privacy:metadata:rating:userid";s:24:"进行评分的用户。";s:30:"privacy:metadata:rating:rating";s:30:"用户输入的数值评分。";s:35:"privacy:metadata:rating:timecreated";s:24:"首次评分的时间。";s:36:"privacy:metadata:rating:timemodified";s:30:"上次更新评分的时间。";}

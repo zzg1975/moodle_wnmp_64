@@ -3345,6 +3345,15 @@ function data_get_exportdata($dataid, $fields, $selectedfields, $currentgroup=0,
                 if(isset($content[$field->field->id])) {
                     $contents = $field->export_text_value($content[$field->field->id]);
                 }
+                 if($contents>= 157737600 && $contents<=7258089600) 
+                 //数据字段大于1975-01-01 00:00:00，说明这个字段是个date类型的Unix时间戳。同时防止11位手机转换为日期输出，该字段要小于2200-1-1 0:0:0
+                {
+                    if(usergetdate($contents)['mon']<10)$zmon= '0' . usergetdate($contents)['mon'];
+                    else $zmon=usergetdate($contents)['mon'];
+                    if(usergetdate($contents)['mday']<10)$zday= '0' . usergetdate($contents)['mday'];
+                    else $zday=usergetdate($contents)['mday'];
+                    $contents=usergetdate($contents)['year'] . '年' . $zmon . '月' . $zday . '日';
+                }
                 $exportdata[$line][] = $contents;
             }
             if ($tags) {

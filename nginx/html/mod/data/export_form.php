@@ -38,14 +38,14 @@ class mod_data_export_form extends moodleform {
 
         // Export format type radio group.
         $typesarray = array();
-        $typesarray[] = $mform->createElement('radio', 'exporttype', null, get_string('csvwithselecteddelimiter', 'data'), 'csv',
-            $optionattrs);
+        //$typesarray[] = $mform->createElement('radio', 'exporttype', null, get_string('csvwithselecteddelimiter', 'data'), 'csv',$optionattrs);
         // Temporarily commenting out Excel export option. See MDL-19864.
-        //$typesarray[] = $mform->createElement('radio', 'exporttype', null, get_string('excel', 'data'), 'xls');
-        $typesarray[] = $mform->createElement('radio', 'exporttype', null, get_string('ods', 'data'), 'ods', $optionattrs);
+        $typesarray[] = $mform->createElement('radio', 'exporttype', null, get_string('excel', 'data'), 'xls');
+        //$typesarray[] = $mform->createElement('radio', 'exporttype', null, get_string('ods', 'data'), 'ods', $optionattrs);
         $mform->addGroup($typesarray, 'exportar', get_string('exportformat', 'data'), null, false);
         $mform->addRule('exportar', null, 'required');
-        $mform->setDefault('exporttype', 'csv');
+        //$mform->setDefault('exporttype', 'csv');
+        $mform->setDefault('exporttype', 'xls');
 
         // CSV delimiter list.
         $choices = csv_import_reader::get_delimiter_list();
