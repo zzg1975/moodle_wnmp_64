@@ -71,7 +71,7 @@
 - 【Nginx版本】1.20.2 stable
 - 【PHP版本】7.3.33 stable【PHP 8.0.10会使H5P互动内容活动无下从H5P hub下载内容类型; PHP 7.4.24会使瓷砖课程格式Tiles Course Format运行错误】
 - 【MariaDB版本】10.4.19 stable【注意：10.5.10版本不能在Windows 7上运行，在 Windows 10上能运行，故没有使用这个版本】
-- 【Moodle 版本】3.11.4+ (Build: 20211210)
+- 【Moodle 版本】3.11.4+ (Build: 20211217)
 
 ## 集成的Moodle开发工具
 
