@@ -1,0 +1,1 @@
+a:7:{s:10:"pluginname";s:15:"缺失字格式";s:15:"pluginname_help";s:60:"缺失字格式可以使问题通过文本文件来导入。";s:15:"pluginname_link";s:19:"Missing word format";s:19:"beginanswernotfound";s:64:"在导入文件的内容中无法找到必需的“{”字符。";s:17:"endanswernotfound";s:64:"在导入文件的内容中无法找到必需的“}”字符。";s:13:"noanswerfound";s:30:"在题目中没有找到答案";s:16:"privacy:metadata";s:57:"选词填空题格式插件不存储任何个人数据。";}

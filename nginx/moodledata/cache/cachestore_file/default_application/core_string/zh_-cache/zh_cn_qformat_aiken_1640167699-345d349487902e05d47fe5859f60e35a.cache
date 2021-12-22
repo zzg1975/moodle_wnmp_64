@@ -1,0 +1,1 @@
+a:7:{s:10:"pluginname";s:11:"Aiken格式";s:15:"pluginname_help";s:66:"这是一个从文本文件中导入多项选择题的简单格式";s:15:"pluginname_link";s:13:"qformat/aiken";s:16:"privacy:metadata";s:53:"Aiken问题格式插件不存储任何个人数据。";s:22:"questionmissinganswers";s:47:"在第{$a}行，问题必须至少有2个答案";s:19:"questionnotcomplete";s:64:"在第{$a}行，在下一个问题开始之前此问题未完成";s:18:"questionnotstarted";s:28:"问题在第{$a}行未开始";}

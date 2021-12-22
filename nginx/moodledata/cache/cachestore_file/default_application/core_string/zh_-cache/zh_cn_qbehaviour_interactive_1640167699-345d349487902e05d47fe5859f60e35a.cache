@@ -1,0 +1,1 @@
+a:4:{s:10:"pluginname";s:21:"交互式多次尝试";s:16:"privacy:metadata";s:69:"多次尝试问题行为插件的交互不存储任何个人数据。";s:14:"triesremaining";s:22:"还可尝试：{$a}次";s:8:"tryagain";s:9:"再试试";}
